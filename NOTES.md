@@ -27,7 +27,9 @@ __AND__ the 10 x 10 board representing 1st player's shots are printed to the con
 __AND__ the 10 x 10 board representing 2nd player's shots are printed to the console on top-right
 
 ## 2nd Pomodoro
-Driver: G
-Navigator: Petko
+Driver: G  
+Navigator: Petko  
 
-- ⚠ Implement scaffolding for new game
+- 🚧 Implement scaffolding for new game
+- ⚠ commit
+- 
