@@ -80,6 +80,7 @@ detect-secrets = "^1.2.0"
 toml-sort = "^0.20.0"
 pyproject-flake8 = "^0.0.1-alpha.4"
 gitlint = "^0.17.0"
+rich = "^12.4.4"
 
 
 [tool.poetry.dev-dependencies]

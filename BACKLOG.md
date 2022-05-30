@@ -16,3 +16,7 @@ __THEN__ the 10 x 10 board representing 1st player's ships is printed to the con
 __AND__ the 10 x 10 board representing 2nd player's ships are printed to the console on bottom-right  
 __AND__ the 10 x 10 board representing 1st player's shots are printed to the console on top-left  
 __AND__ the 10 x 10 board representing 2nd player's shots are printed to the console on top-right
+
+TODO:
+
+- [ ] Snyk into CI pipline  

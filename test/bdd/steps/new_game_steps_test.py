@@ -2,6 +2,7 @@ import pytest
 from pytest_bdd import given, scenario, then, when
 
 import minesweeper
+import minesweeper.cli.util as util
 
 # Given a new game
 # And two players
@@ -25,7 +26,7 @@ def new_game():
 
 @given("the interface is a console", target_fixture="format")
 def console_as_interface():
-    return minesweeper.get_formatter("console")
+    return util.get_formatter("console")
 
 
 @when("the game is printed", target_fixture="representation")

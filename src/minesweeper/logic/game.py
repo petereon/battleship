@@ -1,4 +1,4 @@
-def initialise_game():
+def initialise_game() -> dict:
     return {
         "player1": {
             "own_board": [[], [], [], [], [], [], [], [], [], []],

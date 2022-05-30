@@ -33,3 +33,13 @@ Navigator: Petko
 - 🚧 Implement scaffolding for new game
 - ⚠ commit
 - 
+
+## 3rd Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Test out the formatter utility
+- ⚠ commit
+- ⚠ Implement the functionality for the BDD test
+- ⚠ commit
