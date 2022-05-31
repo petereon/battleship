@@ -35,7 +35,6 @@ def format_for_console(game: dict) -> List[Table]:
     table_player1_own_board.add_column("J", justify="right", style="cyan", no_wrap=True)
 
     for count, data in enumerate(game["player1"]["own_board"], start=1):
-        print(count, data)
-        table_player1_own_board.add_row(str(data[0]), *data[1])
+        table_player1_own_board.add_row(str(count), *list(map(str, data[0])))
 
     return [table_player1_own_board]
