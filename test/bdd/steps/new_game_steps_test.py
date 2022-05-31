@@ -31,6 +31,7 @@ def console_as_interface():
 
 @when("the game is printed", target_fixture="representation")
 def game_is_printed(game, format):
+    print(game)
     return format(game)
 
 
