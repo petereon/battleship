@@ -1,5 +1,7 @@
 from typing import List
+from unittest.mock import patch
 
+import numpy as np
 import pytest
 from rich.table import Table
 
@@ -12,56 +14,12 @@ rows = [i for i in range(10)]
 def game_state():
     return {
         "player1": {
-            "own_board": [
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-            ],
-            "shots_board": [
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-            ],
+            "own_board": np.zeros((10, 10), dtype=int),
+            "shots_board": np.zeros((10, 10), dtype=int),
         },
         "player2": {
-            "own_board": [
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-            ],
-            "shots_board": [
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-                [rows],
-            ],
+            "own_board": np.zeros((10, 10), dtype=int),
+            "shots_board": np.zeros((10, 10), dtype=int),
         },
     }
 
@@ -70,7 +28,7 @@ def describe_get_formatter():
     def test_get_console_player1_own_board_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_own_board = tables[0]
+        table_player1_own_board = tables["player1"]["own_board"]
 
         expected_table = Table(title="Player 1's Ocean")
         for i in range(10):
@@ -80,7 +38,7 @@ def describe_get_formatter():
     def test_get_console_player1_own_board_headers(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_own_board = tables[0]
+        table_player1_own_board = tables["player1"]["own_board"]
 
         assert [i.header for i in table_player1_own_board.columns] == [
             "",
@@ -95,3 +53,69 @@ def describe_get_formatter():
             "I",
             "J",
         ]
+
+
+def test_format_for_console(game_state, mocker):
+    # mocker.patch("util.format_table")
+
+    with patch("minesweeper.cli.util.format_table", lambda x, _: x):
+        assert util.format_for_console(game_state) == game_state
+
+
+def describe_format_table():
+    def test_table_title():
+        board = np.zeros((10, 10), dtype=int)
+        table: Table = util.format_table(board, "Test Player's Board")
+
+        table.title = "Test Player's Board"
+
+    def test_table_x_axis():
+        board = np.zeros((10, 10), dtype=int)
+        table: Table = util.format_table(board, "Test Player's Board")
+
+        assert [i.header for i in table.columns] == [
+            "",
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+        ]
+
+    def test_table_y_axis():
+        board = np.zeros((10, 10), dtype=int)
+        table: Table = util.format_table(board, "Test Player's Board")
+        assert [i for i in table.columns[0]._cells] == [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+        ]
+
+    def test_table_values():
+        board = np.zeros((10, 10), dtype=int)
+        table: Table = util.format_table(board, "Test Player's Board")
+        for col in table.columns[1:]:
+            assert [i for i in col._cells] == [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+            ]

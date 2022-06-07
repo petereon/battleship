@@ -43,3 +43,13 @@ Navigator: G
 - ⚠ commit
 - ⚠ Implement the functionality for the BDD test
 - ⚠ commit
+
+## 4th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Update the formatter to handle the four boards
+- ⚠ commit
+- ⚠ Implement the UAT tests for the four boards
+- ⚠ commit
