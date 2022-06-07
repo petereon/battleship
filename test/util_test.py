@@ -85,10 +85,7 @@ def describe_get_formatter():
         assert table_player1_shots_board.rows == expected_table.rows
 
 
-@pytest.mark.skip("Not implemented")
 def test_format_for_console(game_state, mocker):
-    # mocker.patch("util.format_table")
-
     with patch("minesweeper.cli.util.format_table", lambda x, _: x):
         assert util.format_for_console(game_state) == game_state
 
