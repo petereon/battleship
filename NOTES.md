@@ -53,3 +53,11 @@ Navigator: G
 - ⚠ commit
 - ⚠ Implement the UAT tests for the four boards
 - ⚠ commit
+
+## 5th Pomodoro
+
+Driver: G
+Navigator: Petkp
+
+- ✅ Update the formatter to handle the four boards
+- ⚠ Implement the UAT tests for the four boards
