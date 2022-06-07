@@ -57,7 +57,7 @@ Navigator: G
 ## 5th Pomodoro
 
 Driver: G
-Navigator: Petkp
+Navigator: Petko
 
 - ✅ Update the formatter to handle the four boards
 - ⚠ Implement the UAT tests for the four boards
