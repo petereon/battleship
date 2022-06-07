@@ -54,7 +54,38 @@ def describe_get_formatter():
             "J",
         ]
 
+    def test_get_console_player1_shots_board_contents(game_state):
+        formatter = util.get_formatter("console")
+        tables: List[Table] = formatter(game_state)
+        table_player1_shots_board = tables["player1"]["shots_board"]
 
+        expected_table = Table(title="Player 1's Shots")
+        for i in range(10):
+            expected_table.add_row(str(i + 1), *list(map(str, rows)))
+        assert table_player1_shots_board.rows == expected_table.rows
+
+    def test_get_console_player2_own_board_contents(game_state):
+        formatter = util.get_formatter("console")
+        tables: List[Table] = formatter(game_state)
+        table_player1_own_board = tables["player2"]["own_board"]
+
+        expected_table = Table(title="Player 2's Ocean")
+        for i in range(10):
+            expected_table.add_row(str(i + 1), *list(map(str, rows)))
+        assert table_player1_own_board.rows == expected_table.rows
+
+    def test_get_console_player2_shots_board_contents(game_state):
+        formatter = util.get_formatter("console")
+        tables: List[Table] = formatter(game_state)
+        table_player1_shots_board = tables["player2"]["shots_board"]
+
+        expected_table = Table(title="Player 2's Shots")
+        for i in range(10):
+            expected_table.add_row(str(i + 1), *list(map(str, rows)))
+        assert table_player1_shots_board.rows == expected_table.rows
+
+
+@pytest.mark.skip("Not implemented")
 def test_format_for_console(game_state, mocker):
     # mocker.patch("util.format_table")
 

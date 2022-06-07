@@ -12,18 +12,18 @@ def get_formatter(interface: str) -> Callable[[dict], Any]:
 def format_for_console(game: dict) -> dict:
     return {
         "player1": {
-            "own_board": format_table(game["player1"]["own_board"], "Player 1"),
-            "shots_board": format_table(game["player1"]["shots_board"], "Player 1"),
+            "own_board": format_table(game["player1"]["own_board"], "Player 1's Ocean"),
+            "shots_board": format_table(game["player1"]["shots_board"], "Player 1's Shots"),
         },
         "player2": {
-            "own_board": format_table(game["player2"]["own_board"], "Player 2"),
-            "shots_board": format_table(game["player2"]["shots_board"], "Player 2"),
+            "own_board": format_table(game["player2"]["own_board"], "Player 2's Ocean"),
+            "shots_board": format_table(game["player2"]["shots_board"], "Player 2's Shots"),
         },
     }
 
 
-def format_table(board: np.ndarray, player: str) -> Table:
-    table = Table(title=f"{player}'s Ocean")
+def format_table(board: np.ndarray, board_title: str) -> Table:
+    table = Table(title=board_title)
     table.add_column("", justify="right", style="cyan", no_wrap=True)
     table.add_column("A", justify="right", style="cyan", no_wrap=True)
     table.add_column("B", justify="right", style="cyan", no_wrap=True)
