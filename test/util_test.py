@@ -14,12 +14,12 @@ rows = [i for i in range(10)]
 def game_state():
     return {
         "player1": {
-            "own_board": np.zeros((10, 10), dtype=int),
-            "shots_board": np.zeros((10, 10), dtype=int),
+            "ocean_grid": np.zeros((10, 10), dtype=int),
+            "target_grid": np.zeros((10, 10), dtype=int),
         },
         "player2": {
-            "own_board": np.zeros((10, 10), dtype=int),
-            "shots_board": np.zeros((10, 10), dtype=int),
+            "ocean_grid": np.zeros((10, 10), dtype=int),
+            "target_grid": np.zeros((10, 10), dtype=int),
         },
     }
 
@@ -46,23 +46,23 @@ def mock_format_table():
 
 def describe_get_formatter():
     @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
-    def test_get_console_player1_own_board_contents(game_state):
+    def test_get_console_player1_ocean_grid_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_own_board = tables["player1"]["own_board"]
+        table_player1_ocean_grid = tables["player1"]["ocean_grid"]
 
         expected_table = Table(title="Player 1's Ocean")
         for i in range(10):
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
-        assert table_player1_own_board.rows == expected_table.rows
+        assert table_player1_ocean_grid.rows == expected_table.rows
 
     @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
-    def test_get_console_player1_own_board_headers(game_state):
+    def test_get_console_player1_ocean_grid_headers(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_own_board = tables["player1"]["own_board"]
+        table_player1_ocean_grid = tables["player1"]["ocean_grid"]
 
-        assert [i.header for i in table_player1_own_board.columns] == [
+        assert [i.header for i in table_player1_ocean_grid.columns] == [
             "",
             "A",
             "B",
@@ -77,37 +77,37 @@ def describe_get_formatter():
         ]
 
     @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
-    def test_get_console_player1_shots_board_contents(game_state):
+    def test_get_console_player1_target_grid_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_shots_board = tables["player1"]["shots_board"]
+        table_player1_target_grid = tables["player1"]["target_grid"]
 
         expected_table = Table(title="Player 1's Shots")
         for i in range(10):
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
-        assert table_player1_shots_board.rows == expected_table.rows
+        assert table_player1_target_grid.rows == expected_table.rows
 
     @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
-    def test_get_console_player2_own_board_contents(game_state):
+    def test_get_console_player2_ocean_grid_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_own_board = tables["player2"]["own_board"]
+        table_player1_ocean_grid = tables["player2"]["ocean_grid"]
 
         expected_table = Table(title="Player 2's Ocean")
         for i in range(10):
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
-        assert table_player1_own_board.rows == expected_table.rows
+        assert table_player1_ocean_grid.rows == expected_table.rows
 
     @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
-    def test_get_console_player2_shots_board_contents(game_state):
+    def test_get_console_player2_target_grid_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
-        table_player1_shots_board = tables["player2"]["shots_board"]
+        table_player1_target_grid = tables["player2"]["target_grid"]
 
         expected_table = Table(title="Player 2's Shots")
         for i in range(10):
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
-        assert table_player1_shots_board.rows == expected_table.rows
+        assert table_player1_target_grid.rows == expected_table.rows
 
 
 def test_format_for_console(game_state, mocker):
