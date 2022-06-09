@@ -69,8 +69,10 @@ Navigator: G
 
 - ✅ Rename everything that mentions battleship to battleship
 - ✅ commit
-- ⚠ Update steps files to have given, when, then in the function names
+- 🚧 Update steps files to have given, when, then in the function names
 - ⚠ commit
 - ⚠ Replace own_board with
 - ⚠ Replace shots_board with target_grid
+- ⚠ commit
+- ⚠ Implement then tests in the steps file
 - ⚠ commit
