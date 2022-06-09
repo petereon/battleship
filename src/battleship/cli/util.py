@@ -13,11 +13,11 @@ def format_for_console(game: dict) -> dict:
     return {
         "player1": {
             "ocean_grid": format_table(game["player1"]["ocean_grid"], "Player 1's Ocean"),
-            "target_grid": format_table(game["player1"]["target_grid"], "Player 1's Shots"),
+            "target_grid": format_table(game["player1"]["target_grid"], "Player 1's Target"),
         },
         "player2": {
             "ocean_grid": format_table(game["player2"]["ocean_grid"], "Player 2's Ocean"),
-            "target_grid": format_table(game["player2"]["target_grid"], "Player 2's Shots"),
+            "target_grid": format_table(game["player2"]["target_grid"], "Player 2's Target"),
         },
     }
 

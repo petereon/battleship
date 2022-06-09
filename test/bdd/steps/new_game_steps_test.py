@@ -29,13 +29,20 @@ def given_console_as_interface():
 
 @when("the game is printed", target_fixture="representation")
 def when_game_is_printed(game, format):
-    print(game)
-    return format(game)
+    # pseudocode:
+    # def print_game(game):
+    #     table = Table(title="Battleship Game")
+    #     table.add_column("Player 1")
+    #     table.add_column("Player 2")
+    #     table.add_row(game["player1"]["target_grid"], game["player2"]["target_grid])
+    #     table.add_row(game["player1"]["ocean_grid"], game["player2"]["ocean_grid])
+    # setattr(game, "__str__", print_game)
+    return print(format(game))
 
 
 @then("the 10 x 10 board representing 1st player's ships is printed to the console on bottom-left")
 def then_board_bottom_left(representation):
-    # psudocode: goes here
+    # pseudocode: goes here
     # assert representation.cols == A-J
     # assert representation.rows == 1-10
     pass
