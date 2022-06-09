@@ -1,4 +1,4 @@
-# minesweeper
+# battleship
 ## Overview
 
-XP Farm minesweeper kata
+XP Farm battleship kata

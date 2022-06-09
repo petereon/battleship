@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "minesweeper"
+name = "battleship"
 version = "0.1.0"
-description = "XP Farm minesweeper kata"
+description = "XP Farm battleship kata"
 authors = ["Peter Vyboch <pvyboch1@gmail.com>"]
 license = "MIT"
-repository = 'https://github.com/petereon/minesweeper'
+repository = 'https://github.com/petereon/battleship'
 readme = 'README.md'
 keywords = ["python"]
 classifiers = ['License :: OSI Approved :: MIT License', 'Programming Language :: Python :: 3']
-packages = [{ include = "minesweeper", from = "src" }]
+packages = [{ include = "battleship", from = "src" }]
 
 
 [tool.poe.tasks]
@@ -18,15 +18,15 @@ install = { shell = "poetry install" }
 build = { shell = "poetry build" }
 clean = { shell = "rm -R ./dist .pytest_cache .mypy_cache &> /dev/null" }
 
-test = { shell = "poetry run pytest --pspec -p no:warnings --cov-report=xml --cov-report=term-missing --cov-fail-under=100 --junitxml=.pytest_cache/pytest-report.xml --verbose --verbosity=9 --cache-clear --rootdir='.' --cov=minesweeper && sed -i \"s#$(pwd)#.#g\" coverage.xml" }
-test-watch = { shell = "poetry run ptw test/ src/ -- --cov-report=term-missing --cov=minesweeper" }
+test = { shell = "poetry run pytest --pspec -p no:warnings --cov-report=xml --cov-report=term-missing --cov-fail-under=100 --junitxml=.pytest_cache/pytest-report.xml --verbose --verbosity=9 --cache-clear --rootdir='.' --cov=battleship && sed -i \"s#$(pwd)#.#g\" coverage.xml" }
+test-watch = { shell = "poetry run ptw test/ src/ -- --cov-report=term-missing --cov=battleship" }
 test-lint = { shell = "poetry run pytest --mypy --black" }
 
 black = { shell = "poetry run black ." }
 mypy = { shell = "poetry run mypy ." }
 
 install-self = { shell = "poetry run pip install ./dist/$(ls ./dist | grep .whl | tail -n 1) --force-reinstall" }
-uninstall-self = { shell = "poetry run pip uninstall minesweeper" }
+uninstall-self = { shell = "poetry run pip uninstall battleship" }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

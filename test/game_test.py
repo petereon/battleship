@@ -1,6 +1,6 @@
 import numpy as np
 
-from minesweeper.logic.game import initialise_game
+from battleship.logic.game import initialise_game
 
 
 def describe_initialize_boards():

@@ -5,7 +5,7 @@ import numpy as np
 import pytest
 from rich.table import Table
 
-import minesweeper.cli.util as util
+import battleship.cli.util as util
 
 rows = [i for i in range(10)]
 
@@ -45,7 +45,7 @@ def mock_format_table():
 
 
 def describe_get_formatter():
-    @patch("minesweeper.cli.util.format_table", lambda *args: mock_format_table())
+    @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
     def test_get_console_player1_own_board_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
@@ -56,7 +56,7 @@ def describe_get_formatter():
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
         assert table_player1_own_board.rows == expected_table.rows
 
-    @patch("minesweeper.cli.util.format_table", lambda *args: mock_format_table())
+    @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
     def test_get_console_player1_own_board_headers(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
@@ -76,7 +76,7 @@ def describe_get_formatter():
             "J",
         ]
 
-    @patch("minesweeper.cli.util.format_table", lambda *args: mock_format_table())
+    @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
     def test_get_console_player1_shots_board_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
@@ -87,7 +87,7 @@ def describe_get_formatter():
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
         assert table_player1_shots_board.rows == expected_table.rows
 
-    @patch("minesweeper.cli.util.format_table", lambda *args: mock_format_table())
+    @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
     def test_get_console_player2_own_board_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
@@ -98,7 +98,7 @@ def describe_get_formatter():
             expected_table.add_row(str(i + 1), *list(map(str, rows)))
         assert table_player1_own_board.rows == expected_table.rows
 
-    @patch("minesweeper.cli.util.format_table", lambda *args: mock_format_table())
+    @patch("battleship.cli.util.format_table", lambda *args: mock_format_table())
     def test_get_console_player2_shots_board_contents(game_state):
         formatter = util.get_formatter("console")
         tables: List[Table] = formatter(game_state)
@@ -111,7 +111,7 @@ def describe_get_formatter():
 
 
 def test_format_for_console(game_state, mocker):
-    with patch("minesweeper.cli.util.format_table", lambda x, _: x):
+    with patch("battleship.cli.util.format_table", lambda x, _: x):
         assert util.format_for_console(game_state) == game_state
 
 

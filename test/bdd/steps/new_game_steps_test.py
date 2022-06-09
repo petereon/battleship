@@ -1,8 +1,8 @@
 import pytest
-from pytest_bdd import given, scenario, then, when
+from pytest_bdd import given, scenarios, then, when
 
-import minesweeper
-import minesweeper.cli.util as util
+import battleship
+import battleship.cli.util as util
 
 # Given a new game
 # And two players
@@ -14,14 +14,12 @@ import minesweeper.cli.util as util
 # And the 10 x 10 board representing 2nd player's shots are printed to the console on top-right
 
 
-@scenario("new_game.feature", "Initial setup")
-def test_setting_up_a_new_game():
-    pass
+scenarios("../features/new_game.feature")
 
 
 @given("a new game", target_fixture="game")
 def new_game():
-    return minesweeper.initialise_game()
+    return battleship.initialise_game()
 
 
 @given("the interface is a console", target_fixture="format")
@@ -37,6 +35,9 @@ def game_is_printed(game, format):
 
 @then("the 10 x 10 board representing 1st player's ships is printed to the console on bottom-left")
 def board_bottom_left(representation):
+    # psudocode: goes here
+    # assert representation.cols == A-J
+    # assert representation.rows == 1-10
     pass
 
 

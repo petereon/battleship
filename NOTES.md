@@ -1,4 +1,4 @@
-# Minesweeper kata
+# Battleship kata
 
 Participants:
 - Peter Vyboch
@@ -61,3 +61,16 @@ Navigator: Petko
 
 - ✅ Update the formatter to handle the four boards
 - ⚠ Implement the UAT tests for the four boards
+
+## 6th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- ✅ Rename everything that mentions battleship to battleship
+- ✅ commit
+- ⚠ Update steps files to have given, when, then in the function names
+- ⚠ commit
+- ⚠ Replace own_board with
+- ⚠ Replace shots_board with target_grid
+- ⚠ commit
