@@ -93,6 +93,8 @@ def when_game_is_printed(game, format):
     ),
 )
 def then_cell_contains(table, grid, player, cell, row, game_state):
+    cell = int(cell) - 1
+    row = int(row) - 1
     player = player.replace(" ", "_")
     grid = grid.replace(" ", "_")
 

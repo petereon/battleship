@@ -9,17 +9,17 @@ def get_formatter(interface: str) -> Callable[[dict], Any]:
     return format_for_console
 
 
-def format_for_console(game: dict) -> dict:
-    return {
-        "player1": {
-            "ocean_grid": format_table(game["player1"]["ocean_grid"], "Player 1's Ocean"),
-            "target_grid": format_table(game["player1"]["target_grid"], "Player 1's Target"),
-        },
-        "player2": {
-            "ocean_grid": format_table(game["player2"]["ocean_grid"], "Player 2's Ocean"),
-            "target_grid": format_table(game["player2"]["target_grid"], "Player 2's Target"),
-        },
-    }
+def format_for_console(game: dict) -> Table:
+    table = Table(title="Battleship Game")
+    table.add_row(
+        format_table(game["player1"]["target_grid"], "Player 1's Target"),
+        format_table(game["player2"]["target_grid"], "Player 2's Target"),
+    )
+    table.add_row(
+        format_table(game["player1"]["ocean_grid"], "Player 1's Ocean"),
+        format_table(game["player2"]["ocean_grid"], "Player 2's Ocean"),
+    )
+    return table
 
 
 def format_table(board: np.ndarray, board_title: str) -> Table:
@@ -39,7 +39,7 @@ def format_table(board: np.ndarray, board_title: str) -> Table:
     for count, data in enumerate(board, start=1):
         table.add_row(str(count), *list(map(str, data)))
 
-    console = Console()
-    console.print(table)
+    # console = Console()
+    # console.print(table)
 
     return table
