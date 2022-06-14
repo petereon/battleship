@@ -76,3 +76,35 @@ Navigator: G
 - ✅ commit
 - 🚧 Implement @then tests in the steps file
 - ⚠ commit
+
+## 7th Pomodoro
+
+Mob programming
+
+- ✅ Figure out way to mock the table placement
+
+
+## 8th Pomodoro
+
+Driver: G
+Navigator: Petko
+
+- ✅ Figure out how to put a table within a table from the game object
+- ⚠ Fixture for Player 1 Shots for Grid
+
+## 9th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Create print function for the table (drive by unit tests)
+
+## 10th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧: update the feature for the new game
+- ⚠ commit
+- ⚠ create tests for the format function of the entire game
+- ⚠ commit

@@ -172,3 +172,9 @@ def describe_format_table():
                 "0",
                 "0",
             ]
+
+
+# def describe_game_print(mock_state_with_tables):
+#     def test_player1_target_grid():
+#             game_repr = util.format_game(mock_state_with_tables)
+#             game_repr.rows[0][0] = mock_state_with_tables["player1"]["target_grid"]
