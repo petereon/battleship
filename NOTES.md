@@ -108,3 +108,10 @@ Navigator: G
 - ⚠ commit
 - ⚠ create tests for the format function of the entire game
 - ⚠ commit
+
+## 11th Pomodoro
+
+Mob programming
+
+- 🚧 Write tests for UAT 2.1
+- ⚠ commit
