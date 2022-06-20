@@ -81,4 +81,4 @@ __AND__ each grid is 10 x 10
 
 TODO:
 
-- [ ] Snyk into CI pipline  
+- [ ] Snyk into CI pipeline  
