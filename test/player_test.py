@@ -5,20 +5,18 @@ from battleship.logic import Grid, Player
 # from test.player_test import MockGrid
 
 
-def test_player_has_ocean_grid():
-    with mock.patch("battleship.logic.Grid", autospec=True) as MockedGrid:
-        MockedGrid.return_value = "testing"
-        blah = MockedGrid()
-        print("BLAH", blah)
-        player = Player()
-        print("!!!", Grid())
-        print("GRID", player.ocean_grid)
-        # assert isinstance(player.ocean_grid, type(MockGrid))
-        assert player.ocean_grid is MockedGrid
-        # assert type(player.ocean_grid) == type(MockGrid)
+def describe_player():
+    def test_player_has_ocean_grid():
+        with mock.patch("battleship.logic.player.Grid") as MockedGrid:
+            MockedGrid.return_value = "testing"
+            player = Player()
+            # assert isinstance(player.ocean_grid, MockedGrid)
+            assert player.ocean_grid == "testing"
+            # assert type(player.ocean_grid) == type(MockedGrid)
 
-    # def test_player_has_target_grid():
-    #     with mock.patch("battleship.logic.Grid", mock.MagicMock):
-    #         player = Player()
-
-    #         assert isinstance(player.target_grid, mock.MagicMock)
+    def test_player_has_target_grid():
+        with mock.patch("battleship.logic.player.Grid") as MockedGrid:
+            MockedGrid.return_value = "testing"
+            player = Player()
+            # assert isinstance(player.ocean_grid, MockedGrid)
+            assert player.target_grid == "testing"
