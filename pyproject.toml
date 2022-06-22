@@ -19,7 +19,7 @@ build = { shell = "poetry build" }
 clean = { shell = "rm -R ./dist .pytest_cache .mypy_cache &> /dev/null" }
 
 test = { shell = "poetry run pytest --pspec -p no:warnings --cov-report=xml --cov-report=term-missing --cov-fail-under=100 --junitxml=.pytest_cache/pytest-report.xml --verbose --verbosity=9 --cache-clear --rootdir='.' --cov=battleship && sed -i \"s#$(pwd)#.#g\" coverage.xml" }
-test-watch = { shell = "poetry run ptw test/ src/ -- --cov-report=term-missing --cov=battleship" }
+test-watch = { shell = "poetry run ptw test/ src/ -- --pspec --cov-report=term-missing --cov=battleship" }
 test-lint = { shell = "poetry run pytest --mypy --black" }
 
 black = { shell = "poetry run black ." }

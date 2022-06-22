@@ -113,5 +113,14 @@ Navigator: G
 
 Mob programming
 
-- 🚧 Write tests for UAT 2.1
+- ✅ Write BDD tests for UAT 2.1
+- ✅ commit
+
+## 12th Pomodoro
+
+Mob programming
+
+- 🚧 Write unit tests for UAT 2.1
+- ⚠ commit
+- ⚠ Write the implementation for the UAT 2.1
 - ⚠ commit
