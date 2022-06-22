@@ -1,4 +1,4 @@
-from battleship.logic import Grid
+from battleship.logic.grid import Grid
 
 
 class Player:
