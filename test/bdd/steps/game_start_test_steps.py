@@ -34,6 +34,5 @@ def then_the_grid_is_empty(game, grid, player):
 @then(parsers.parse("the {grid} grid for player {player} is 10 x 10"))
 def then_the_grid_is_10x10(game, grid, player):
     assert np.all(
-        game.__getattribute__(f"player{player}").__getattribute__(f"{grid}_grid").matrix.shape
-        == (10, 10),
+        game.__getattribute__(f"player{player}").__getattribute__(f"{grid}_grid").matrix.shape == (10, 10),
     )
