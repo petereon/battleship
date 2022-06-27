@@ -126,3 +126,19 @@ Mob programming
 - ⚠ commit
 
 ## 13th Pomodoro
+
+- ✅ Write unit tests for UAT 2.1
+- ✅ commit
+
+## 14th Pomodoro
+
+- ✅ Write more of the backlog
+
+## 15th Pomodoro
+
+Driver: G
+Navigator: Petko
+
+- ✅ Implement passing BDD test stubs
+- 🚧 Provide actual implementation of BDD tests
+- ⚠ Drill down to unit tests

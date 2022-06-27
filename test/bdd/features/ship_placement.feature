@@ -5,9 +5,9 @@ Feature: Ship Placement
         And the player's grids are set up
         When the player places the carrier on their ocean grid
         And chooses the position <position>
-        Then a carrier is placed on the ocean grid
-        And the carrier is in position <position>
+        Then the carrier in position <position> on the ocean grid
         And the carrier has 5 holes
+        And they are in a straight line
 
         Examples:
             | position |
