@@ -30,8 +30,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
+        python -m pip install poetry
         poetry install
     - name: Lint the code
       run: |
+        # poetry run poe test-lint
         poetry run poe lint
-      # poetry run poe test-lint
