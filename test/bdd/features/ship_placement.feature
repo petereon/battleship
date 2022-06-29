@@ -1,6 +1,6 @@
 Feature: Ship Placement
 
-    Scenario Outline: Placing a carrier in position {position}
+    Scenario Outline: Placing a carrier in position
         Given a player
         And the player's grids are set up
         When the player places the carrier on their ocean grid

@@ -95,7 +95,7 @@ __As a__ game player
 __I want__ to place ships on my ocean grid
 __So that__ I can see my ships
 
-#### UAT 3.1 🚧
+#### UAT 3.1 ✅
 Given a player
 And the player's grids are set up
 When the player places the carrier on their ocean grid
@@ -111,7 +111,7 @@ And the carrier has 5 holes
   | A1, E1   |
   | J5, J9   |
 
-#### UAT 3.2 ⚠
+#### UAT 3.2 🚧
 Given a player
 And the player's grids are set up
 When the player places the battleship on their ocean grid

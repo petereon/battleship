@@ -43,17 +43,18 @@ def when_the_player_chooses_the_position(position, player, vessel_type):
 def then_the_carrier_is_in_position(position, player):
     (start_column, start_row), (end_column, end_row) = get_position_coordinates(position)
 
-    assert player.ocean_grid.matrix[row_mapping[start_row]][column_mapping[start_column]] == CARRIER
-    assert player.ocean_grid.matrix[row_mapping[end_row]][column_mapping[end_column]] == CARRIER
+    assert player.ocean_grid.matrix[column_mapping[start_column]][row_mapping[start_row]] == CARRIER
+    assert player.ocean_grid.matrix[column_mapping[end_column]][row_mapping[end_row]] == CARRIER
 
 
 @then("the carrier has 5 holes")
 def then_the_carrier_has_5_holes(player):
-    indices = np.argwhere(player.ocean_grid == 9)
+    indices = np.argwhere(player.ocean_grid.matrix == 9)
     assert len(indices) == 5
 
 
 def is_straight_line(indices):
+    print("!!!", list(zip(*indices)))
     cols, rows = list(zip(*indices))
 
     for i in range(10):
@@ -70,5 +71,5 @@ def is_straight_line(indices):
 
 @then("they are in a straight line")
 def then_they_are_in_a_straight_line(player):
-    indices = np.argwhere(player.ocean_grid == 9)
+    indices = np.argwhere(player.ocean_grid.matrix == 9)
     assert is_straight_line(indices)
