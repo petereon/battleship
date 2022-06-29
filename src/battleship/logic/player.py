@@ -17,7 +17,12 @@ class Player:
     def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
         ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
         self.ocean_grid.matrix[start_column_idx][start_row_idx] = CARRIER
-        self.ocean_grid.matrix[start_column_idx][start_row_idx + 1] = CARRIER
-        self.ocean_grid.matrix[start_column_idx][start_row_idx + 2] = CARRIER
-        self.ocean_grid.matrix[start_column_idx][start_row_idx + 3] = CARRIER
+        if start_column_idx != end_column_idx:
+            self.ocean_grid.matrix[start_column_idx + 1][start_row_idx] = CARRIER
+            self.ocean_grid.matrix[start_column_idx + 2][start_row_idx] = CARRIER
+            self.ocean_grid.matrix[start_column_idx + 3][start_row_idx] = CARRIER
+        else:
+            self.ocean_grid.matrix[start_column_idx][start_row_idx + 1] = CARRIER
+            self.ocean_grid.matrix[start_column_idx][start_row_idx + 2] = CARRIER
+            self.ocean_grid.matrix[start_column_idx][start_row_idx + 3] = CARRIER
         self.ocean_grid.matrix[end_column_idx][end_row_idx] = CARRIER

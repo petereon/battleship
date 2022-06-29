@@ -40,5 +40,5 @@ def describe_placing_ship():
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("G", "5")))
         indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
-        expected = np.array([[2, 5], [3, 5], [4, 5], [5, 5], [6, 5]])
+        expected = np.array([[2, 4], [3, 4], [4, 4], [5, 4], [6, 4]])
         np.testing.assert_array_equal(indices, expected)
