@@ -33,12 +33,28 @@ def describe_placing_ship():
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("B", "2"), ("B", "6")))
         indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
-        expected = np.array([[1, 1], [1, 2], [1, 3], [1, 4], [1, 5]])
+        expected = np.array(
+            [
+                [column_mapping["B"], row_mapping["2"]],
+                [column_mapping["B"], row_mapping["3"]],
+                [column_mapping["B"], row_mapping["4"]],
+                [column_mapping["B"], row_mapping["5"]],
+                [column_mapping["B"], row_mapping["6"]],
+            ],
+        )
         np.testing.assert_array_equal(indices, expected)
 
     def place_vertical_carrier_on_C5_C9_shape_is_5_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("G", "5")))
         indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
-        expected = np.array([[2, 4], [3, 4], [4, 4], [5, 4], [6, 4]])
+        expected = np.array(
+            [
+                [column_mapping["C"], row_mapping["5"]],
+                [column_mapping["D"], row_mapping["5"]],
+                [column_mapping["E"], row_mapping["5"]],
+                [column_mapping["F"], row_mapping["5"]],
+                [column_mapping["G"], row_mapping["5"]],
+            ],
+        )
         np.testing.assert_array_equal(indices, expected)
