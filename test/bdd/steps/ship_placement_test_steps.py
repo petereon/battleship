@@ -1,6 +1,12 @@
 import numpy as np
 from pytest_bdd import given, parsers, scenarios, then, when
 
+from battleship.logic.constants import (
+    CARRIER,
+    CARRIER_LENGTH,
+    column_mapping,
+    row_mapping,
+)
 from battleship.logic.player import Player
 
 scenarios("../features/ship_placement.feature")
@@ -22,7 +28,7 @@ def when_the_player_places_the_carrier():
 
 
 def get_position_coordinates(position):
-    start, end = position.split(",")
+    start, end = position.split(", ")
     start_column, start_row = start.strip()
     end_column, end_row = end.strip()
     return ((start_column, start_row), (end_column, end_row))
@@ -33,28 +39,12 @@ def when_the_player_chooses_the_position(position, player, vessel_type):
     player.place_vessel(vessel_type, get_position_coordinates(position))
 
 
-column_mapping = {
-    "A": 0,
-    "B": 1,
-    "C": 2,
-    "D": 3,
-    "E": 4,
-    "F": 5,
-    "G": 6,
-    "H": 7,
-    "I": 8,
-    "J": 9,
-}
-CARRIER = 9
-CARRIER_LENGTH = 5
-
-
 @then(parsers.parse("the carrier in position {position} on the ocean grid"))
 def then_the_carrier_is_in_position(position, player):
     (start_column, start_row), (end_column, end_row) = get_position_coordinates(position)
 
-    assert player.ocean_grid.matrix[start_row - 1][column_mapping(start_column)] == CARRIER
-    assert player.ocean_grid.matrix[end_row - 1][column_mapping(end_column)] == CARRIER
+    assert player.ocean_grid.matrix[row_mapping[start_row]][column_mapping[start_column]] == CARRIER
+    assert player.ocean_grid.matrix[row_mapping[end_row]][column_mapping[end_column]] == CARRIER
 
 
 @then("the carrier has 5 holes")

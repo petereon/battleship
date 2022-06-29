@@ -140,5 +140,15 @@ Driver: G
 Navigator: Petko
 
 - ✅ Implement passing BDD test stubs
-- 🚧 Provide actual implementation of BDD tests
+- ✅ Provide actual implementation of BDD tests
 - ⚠ Drill down to unit tests
+
+## 16th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Drill down to unit tests for UAT 3.1
+- ⚠ commit
+- ⚠ write the functionality for UAT 3.1
+- ⚠ commit
