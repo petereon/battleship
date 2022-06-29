@@ -35,4 +35,4 @@ jobs:
     - name: Lint the code
       run: |
         # poetry run poe test-lint
-        poetry run poe lint
+        poetry run poe mypy
