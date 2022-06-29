@@ -10,4 +10,7 @@ class Player:
     def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
         start_column_idx = column_mapping[coordinates[0][0]]
         start_row_idx = row_mapping[coordinates[0][1]]
+        end_column_idx = column_mapping[coordinates[1][0]]
+        end_row_idx = row_mapping[coordinates[1][1]]
         self.ocean_grid.matrix[start_column_idx][start_row_idx] = CARRIER
+        self.ocean_grid.matrix[end_column_idx][end_row_idx] = CARRIER

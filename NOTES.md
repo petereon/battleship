@@ -152,3 +152,8 @@ Navigator: G
 - ⚠ commit
 - ⚠ write the functionality for UAT 3.1
 - ⚠ commit
+
+## 17th Pomodoro
+
+- 🚧 continue with the unit tests for UAT 3.1
+- ⚠ commit
