@@ -7,10 +7,17 @@ class Player:
         self.ocean_grid = Grid()
         self.target_grid = Grid()
 
-    def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
+    def get_ship_coordinates(self, coordinates: tuple) -> tuple:
         start_column_idx = column_mapping[coordinates[0][0]]
         start_row_idx = row_mapping[coordinates[0][1]]
         end_column_idx = column_mapping[coordinates[1][0]]
         end_row_idx = row_mapping[coordinates[1][1]]
+        return ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx))
+
+    def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
+        ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
         self.ocean_grid.matrix[start_column_idx][start_row_idx] = CARRIER
         self.ocean_grid.matrix[end_column_idx][end_row_idx] = CARRIER
+        self.ocean_grid.matrix[start_column_idx + 1][start_row_idx] = CARRIER
+        self.ocean_grid.matrix[start_column_idx + 2][start_row_idx] = CARRIER
+        self.ocean_grid.matrix[start_column_idx + 3][start_row_idx] = CARRIER
