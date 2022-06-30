@@ -2,17 +2,17 @@
 
 function usage() {
   echo "Usage: "
-  echo "  npm run commit chore                              # chore: <message>"
-  echo "  npm run commit desc                               # docs: description added"
-  echo "  npm run commit (p | plan | plans)                 # docs: user stories added"
-  echo "  npm run commit (td | techdebt)                    # docs: updated techdebt"
-  echo "  npm run commit (n | note | notes)                 # docs: updated notes"
-  echo "  npm run commit uat <us> <uat> (r | red)           # feat(us<us>/uat<uat>): red"
-  echo "  npm run commit uat <us> <uat> (g | green)         # feat(us<us>/uat<uat>): green"
-  echo "  npm run commit uat <us> <uat> ref <message>       # refactor(us<us>/uat<uat>): <message>"
-  echo "  npm run commit uat <us> <uat> (c | covered)       # test(us<us>/uat<uat>): added already covered test case"
-  echo "  npm run commit uat <us> <uat> (d | done)          # feat(us<us>/uat<uat>): done"
-  echo "  npm run commit us <us> done                       # feat(us<us>): done"
+  echo "  ./scripts/save.sh chore                              # chore: <message>"
+  echo "  ./scripts/save.sh desc                               # docs: description added"
+  echo "  ./scripts/save.sh (p | plan | plans)                 # docs: user stories added"
+  echo "  ./scripts/save.sh (td | techdebt)                    # docs: updated techdebt"
+  echo "  ./scripts/save.sh (n | note | notes)                 # docs: updated notes"
+  echo "  ./scripts/save.sh uat <us> <uat> (r | red)           # feat(us<us>/uat<uat>): red"
+  echo "  ./scripts/save.sh uat <us> <uat> (g | green)         # feat(us<us>/uat<uat>): green"
+  echo "  ./scripts/save.sh uat <us> <uat> ref <message>       # refactor(us<us>/uat<uat>): <message>"
+  echo "  ./scripts/save.sh uat <us> <uat> (c | covered)       # test(us<us>/uat<uat>): added already covered test case"
+  echo "  ./scripts/save.sh uat <us> <uat> (d | done)          # feat(us<us>/uat<uat>): done"
+  echo "  ./scripts/save.sh us <us> done                       # feat(us<us>): done"
   exit 1
 }
 
