@@ -15,5 +15,11 @@ dist/
 
 .vscode/*
 !.vscode/*.code-snippets
+.env
 
+# MacOS
 .DS_Store
+
+# Terraform
+.terraform*
+terraform.tfstate*

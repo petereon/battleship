@@ -1,4 +1,4 @@
-variable "token" {}
+variable token {}
 
 terraform {
   required_providers {
@@ -11,7 +11,7 @@ terraform {
 
 provider "sonarcloud" {
   organization = "petereon"
-  token        = var.token
+  token        = "${var.token}"
 }
 
 resource "sonarcloud_project" "petereon_battleship" {
