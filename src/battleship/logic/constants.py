@@ -19,11 +19,11 @@ CARRIER = 9
 CARRIER_LENGTH = 5
 
 
-class Vessel_Identifier(IntEnum):
+class VesselIdentifier(IntEnum):
     CARRIER = 9
 
 
-class Vessel_Length(IntEnum):
+class VesselLength(IntEnum):
     CARRIER = 5
 
 

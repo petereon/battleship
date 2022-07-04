@@ -177,9 +177,9 @@ Driver & Navigator: G
 
 Driver & Navigator: G
 
-- 🚧 refactor bdd tests to support multiple types of vessels
-- ⚠ commit
-- ⚠ refactor use of carrier to ENUM
+- ✅ refactor bdd tests to support multiple types of vessels
+- ✅ commit
+- 🚧 refactor use of carrier to ENUM
 - ⚠ commit
 - ⚠ write the bdd tests for UAT 3.2
 - ⚠ commit
