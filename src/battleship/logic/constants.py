@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, IntEnum
 
 column_mapping = {
     "A": 0,
@@ -17,6 +17,14 @@ row_mapping = {str(i + 1): i for i in range(10)}
 
 CARRIER = 9
 CARRIER_LENGTH = 5
+
+
+class Vessel_Identifier(IntEnum):
+    CARRIER = 9
+
+
+class Vessel_Length(IntEnum):
+    CARRIER = 5
 
 
 class Vessel(Enum):

@@ -155,5 +155,33 @@ Navigator: G
 
 ## 17th Pomodoro
 
+Driver & Navigator: G  
+
 - ✅ continue with the unit tests for UAT 3.1
 - ✅ commit
+
+## 18th Pomodoro
+
+Mob Programming  
+
+- ✅ Set up Terraform
+
+## 19th Pomodoro
+
+Driver & Navigator: G  
+
+- 🚧 work on UAT 3.2
+- ⚠ commit
+
+## 20th Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 refactor bdd tests to support multiple types of vessels
+- ⚠ commit
+- ⚠ refactor use of carrier to ENUM
+- ⚠ commit
+- ⚠ write the bdd tests for UAT 3.2
+- ⚠ commit
+- ⚠ write the unit test for UAT 3.2
+- ⚠ commit
