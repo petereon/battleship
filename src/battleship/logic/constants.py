@@ -15,9 +15,6 @@ column_mapping = {
 
 row_mapping = {str(i + 1): i for i in range(10)}
 
-CARRIER = 9
-CARRIER_LENGTH = 5
-
 
 class VesselIdentifier(IntEnum):
     CARRIER = 9

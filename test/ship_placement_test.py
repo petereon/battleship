@@ -3,7 +3,12 @@ from enum import Enum
 import numpy as np
 import pytest
 
-from battleship.logic.constants import CARRIER, Vessel, column_mapping, row_mapping
+from battleship.logic.constants import (
+    Vessel,
+    VesselIdentifier,
+    column_mapping,
+    row_mapping,
+)
 from battleship.logic.player import Player
 
 
@@ -16,23 +21,23 @@ def describe_placing_ship():
     def place_horizontal_carrier_on_C5_C9_start_hole_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
-        assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == CARRIER
+        assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == VesselIdentifier["CARRIER"]
 
     def place_horizontal_carrier_on_C5_C9_end_hole_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
-        assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["9"]] == CARRIER
+        assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["9"]] == VesselIdentifier["CARRIER"]
 
     def place_horizontal_carrier_on_C5_C9_length_is_5_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
-        indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         assert len(indices) == 5
 
     def place_horizontal_carrier_on_B2_B6_shape_is_5_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("B", "2"), ("B", "6")))
-        indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         expected = np.array(
             [
                 [column_mapping["B"], row_mapping["2"]],
@@ -47,7 +52,7 @@ def describe_placing_ship():
     def place_vertical_carrier_on_C5_C9_shape_is_5_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("G", "5")))
-        indices = np.argwhere(player.ocean_grid.matrix == CARRIER)
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         expected = np.array(
             [
                 [column_mapping["C"], row_mapping["5"]],
