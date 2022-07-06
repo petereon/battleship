@@ -18,6 +18,7 @@ row_mapping = {str(i + 1): i for i in range(10)}
 
 class VesselIdentifier(IntEnum):
     CARRIER = 9
+    BATTLESHIP = 8
 
 
 class VesselLength(IntEnum):
