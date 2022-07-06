@@ -121,3 +121,15 @@ def describe_placing_ship():
             ],
         )
         np.testing.assert_array_equal(indices, expected)
+
+    def place_horizontal_cruiser_on_E10_F10_shape_is_2_test(get_player):
+        player = get_player
+        player.place_vessel(Vessel.CRUISER, (("E", "10"), ("F", "10")))
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CRUISER"])
+        expected = np.array(
+            [
+                [column_mapping["E"], row_mapping["10"]],
+                [column_mapping["F"], row_mapping["10"]],
+            ],
+        )
+        np.testing.assert_array_equal(indices, expected)
