@@ -108,3 +108,16 @@ def describe_placing_ship():
             ],
         )
         np.testing.assert_array_equal(indices, expected)
+
+    def place_vertical_submarine_on_G3_G5_shape_is_3_test(get_player):
+        player = get_player
+        player.place_vessel(Vessel.SUBMARINE, (("G", "3"), ("G", "5")))
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["SUBMARINE"])
+        expected = np.array(
+            [
+                [column_mapping["G"], row_mapping["3"]],
+                [column_mapping["G"], row_mapping["4"]],
+                [column_mapping["G"], row_mapping["5"]],
+            ],
+        )
+        np.testing.assert_array_equal(indices, expected)
