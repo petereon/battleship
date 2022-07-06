@@ -20,15 +20,18 @@ class VesselIdentifier(IntEnum):
     CARRIER = 9
     BATTLESHIP = 8
     CRUISER = 7
+    SUBMARINE = 6
 
 
 class VesselLength(IntEnum):
     CARRIER = 5
     BATTLESHIP = 4
     CRUISER = 3
+    SUBMARINE = 3
 
 
 class Vessel(Enum):
     CARRIER = "CARRIER"
     BATTLESHIP = "BATTLESHIP"
     CRUISER = "CRUISER"
+    SUBMARINE = "SUBMARINE"

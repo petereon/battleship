@@ -44,3 +44,18 @@ Feature: Ship Placement
             | H1, H3   |
             | C1, E1   |
             | J5, J7   |
+
+    Scenario Outline: Placing a submarine in position
+        Given a player
+        And the player's grids are set up
+        When the player places the submarine on their ocean grid
+        And chooses the position <position>
+        Then the submarine in position <position> on the ocean grid
+        And the submarine has 3 holes
+        And they are in a straight line
+
+        Examples:
+            | position |
+            | H7, H9   |
+            | C2, E2   |
+            | J5, J7   |
