@@ -96,7 +96,7 @@ def describe_placing_ship():
         )
         np.testing.assert_array_equal(indices, expected)
 
-    def place_horizontal_cruiser_on_G4_G6_shape_is_3_test(get_player):
+    def place_vertical_cruiser_on_G4_G6_shape_is_3_test(get_player):
         player = get_player
         player.place_vessel(Vessel.CRUISER, (("G", "4"), ("G", "6")))
         indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CRUISER"])
