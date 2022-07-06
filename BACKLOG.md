@@ -127,7 +127,7 @@ And the battleship has 4 holes
   | B1, E1   |
   | J5, J8   |
 
-#### UAT 3.3 🚧
+#### UAT 3.3 ✅
 Given a player
 And the player's grids are set up
 When the player places the cruiser on their ocean grid
@@ -143,7 +143,7 @@ And the cruiser has 3 holes
   | C1, E1   |
   | J5, J7   |
 
-#### UAT 3.4 ⚠
+#### UAT 3.4 ✅
 Given a player
 And the player's grids are set up
 When the player places the submarine on their ocean grid
@@ -159,7 +159,7 @@ And the submarine has 3 holes
   | C2, E2   |
   | J5, J7   |
 
-#### UAT 3.5 ⚠
+#### UAT 3.5 🚧
 Given a player
 And the player's grids are set up
 When the player places the destroyer on their ocean grid
@@ -175,6 +175,3 @@ And the destroyer has 2 holes
   | D2, E2   |
   | J5, J6   |
   
-TODO:
-
-- [ ] Snyk into CI pipeline  
