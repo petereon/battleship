@@ -29,3 +29,18 @@ Feature: Ship Placement
             | A1, A4   |
             | B1, E1   |
             | J5, J8   |
+
+    Scenario Outline: Placing a cruiser in position
+        Given a player
+        And the player's grids are set up
+        When the player places the cruiser on their ocean grid
+        And chooses the position <position>
+        Then the cruiser in position <position> on the ocean grid
+        And the cruiser has 3 holes
+        And they are in a straight line
+
+        Examples:
+            | position |
+            | H1, H3   |
+            | C1, E1   |
+            | J5, J7   |

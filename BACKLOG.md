@@ -111,7 +111,7 @@ And the carrier has 5 holes
   | A1, E1   |
   | J5, J9   |
 
-#### UAT 3.2 🚧
+#### UAT 3.2 ✅
 Given a player
 And the player's grids are set up
 When the player places the battleship on their ocean grid
@@ -127,7 +127,7 @@ And the battleship has 4 holes
   | B1, E1   |
   | J5, J8   |
 
-#### UAT 3.3 ⚠
+#### UAT 3.3 🚧
 Given a player
 And the player's grids are set up
 When the player places the cruiser on their ocean grid

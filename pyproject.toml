@@ -19,7 +19,7 @@ build = { shell = "poetry build" }
 clean = { shell = "rm -R ./dist .pytest_cache .mypy_cache &> /dev/null" }
 
 test = { shell = "poetry run pytest --pspec -p no:warnings --cov-report=xml --cov-report=term-missing --cov-fail-under=100 --junitxml=.pytest_cache/pytest-report.xml --verbose --verbosity=9 --cache-clear --rootdir='.' --cov=battleship && sed -i \"s#$(pwd)#.#g\" coverage.xml" }
-test-watch = { shell = "poetry run ptw test/ src/ -- --pspec --cov-report=term-missing --cov=battleship" }
+test-watch = { shell = "poetry run ptw test/ src/ -- -vv --pspec --cov-report=term-missing --cov=battleship" }
 
 black = { shell = "poetry run black ." }
 mypy = { shell = "poetry run mypy ." }
@@ -121,3 +121,4 @@ pre-commit = "*"
 isort = "^5.10.1"
 pytest-mock = "^3.7.0"
 detect-secrets = "^1.2.0"
+pytest-clarity = "^1.0.1"
