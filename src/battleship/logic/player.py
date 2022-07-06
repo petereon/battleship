@@ -23,11 +23,12 @@ class Player:
         ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
         self.ocean_grid.matrix[start_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
         if start_column_idx != end_column_idx:
-            self.ocean_grid.matrix[start_column_idx + 1][start_row_idx] = VesselIdentifier[vessel_type.value]
-            self.ocean_grid.matrix[start_column_idx + 2][start_row_idx] = VesselIdentifier[vessel_type.value]
-            self.ocean_grid.matrix[start_column_idx + 3][start_row_idx] = VesselIdentifier[vessel_type.value]
+            current_column_idx = start_column_idx
+            while current_column_idx < end_column_idx:
+                current_column_idx += 1
+                self.ocean_grid.matrix[current_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
         else:
             self.ocean_grid.matrix[start_column_idx][start_row_idx + 1] = VesselIdentifier[vessel_type.value]
             self.ocean_grid.matrix[start_column_idx][start_row_idx + 2] = VesselIdentifier[vessel_type.value]
             self.ocean_grid.matrix[start_column_idx][start_row_idx + 3] = VesselIdentifier[vessel_type.value]
-        self.ocean_grid.matrix[end_column_idx][end_row_idx] = VesselIdentifier[vessel_type.value]
+            self.ocean_grid.matrix[end_column_idx][end_row_idx] = VesselIdentifier[vessel_type.value]
