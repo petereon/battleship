@@ -174,4 +174,18 @@ And the destroyer has 2 holes
   | H7, H8   |
   | D2, E2   |
   | J5, J6   |
-  
+
+
+#### UAT 3.6 ⚠
+Given a player
+And the player's grids are set up
+When the player places the destroyer on their ocean grid
+And chooses the position <position>
+Then the player receives an error message
+And there is no change to their ocean grid
+
+  Examples:
+  | position   |
+  | HH, H8     |
+  | D2, blah   |
+  | J10, J12   |

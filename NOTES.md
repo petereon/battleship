@@ -216,7 +216,8 @@ Driver & Navigator: G
 - ✅ commit
 - ✅ write the unit tests for UAT 3.4
 - ✅ commit
-- 🚧 write the bdd tests for UAT 3.5
-- ⚠ commit
-- ⚠ write the unit tests for UAT 3.5
-- ⚠ commit
+- ✅ write the bdd tests for UAT 3.5
+- ✅ commit
+- ✅ write the unit tests for UAT 3.5
+- ✅ commit
+- ✅ write UAT 3.6 in the backlog for the negative case
