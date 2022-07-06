@@ -20,23 +20,23 @@ def get_player():
 def describe_placing_ship():
     def place_horizontal_carrier_on_C5_C9_start_hole_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
+        player.place_vessel(Vessel.CARRIER, (("C", "5"), ("C", "9")))
         assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == VesselIdentifier["CARRIER"]
 
     def place_horizontal_carrier_on_C5_C9_end_hole_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
+        player.place_vessel(Vessel.CARRIER, (("C", "5"), ("C", "9")))
         assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["9"]] == VesselIdentifier["CARRIER"]
 
     def place_horizontal_carrier_on_C5_C9_length_is_5_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("C", "9")))
+        player.place_vessel(Vessel.CARRIER, (("C", "5"), ("C", "9")))
         indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         assert len(indices) == 5
 
     def place_horizontal_carrier_on_B2_B6_shape_is_5_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.CARRIER.value, (("B", "2"), ("B", "6")))
+        player.place_vessel(Vessel.CARRIER, (("B", "2"), ("B", "6")))
         indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         expected = np.array(
             [
@@ -51,7 +51,7 @@ def describe_placing_ship():
 
     def place_vertical_carrier_on_C5_C9_shape_is_5_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.CARRIER.value, (("C", "5"), ("G", "5")))
+        player.place_vessel(Vessel.CARRIER, (("C", "5"), ("G", "5")))
         indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["CARRIER"])
         expected = np.array(
             [
@@ -66,5 +66,5 @@ def describe_placing_ship():
 
     def place_horizontal_battleship_on_C5_C8_start_hole_test(get_player):
         player = get_player
-        player.place_vessel(Vessel.BATTLESHIP.value, (("C", "5"), ("C", "8")))
+        player.place_vessel(Vessel.BATTLESHIP, (("C", "5"), ("C", "8")))
         assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == VesselIdentifier["BATTLESHIP"]

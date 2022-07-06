@@ -27,3 +27,4 @@ class VesselLength(IntEnum):
 
 class Vessel(Enum):
     CARRIER = "CARRIER"
+    BATTLESHIP = "BATTLESHIP"

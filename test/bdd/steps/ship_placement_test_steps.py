@@ -2,6 +2,7 @@ import numpy as np
 from pytest_bdd import given, parsers, scenarios, then, when
 
 from battleship.logic.constants import (
+    Vessel,
     VesselIdentifier,
     VesselLength,
     column_mapping,
@@ -24,7 +25,7 @@ def given_players_grids_are_set_up():
 
 @when(parsers.parse("the player places the {vessel_type} on their ocean grid"), target_fixture="vessel_type")
 def when_the_player_places_the_vessel(vessel_type):
-    return vessel_type
+    return vessel_type.upper()
 
 
 def get_position_coordinates(position):
@@ -36,7 +37,7 @@ def get_position_coordinates(position):
 
 @when(parsers.parse("chooses the position {position}"))
 def when_the_player_chooses_the_position(position, player, vessel_type):
-    player.place_vessel(vessel_type, get_position_coordinates(position))
+    player.place_vessel(Vessel[vessel_type], get_position_coordinates(position))
 
 
 @then(parsers.parse("the {vessel_type} in position {position} on the ocean grid"))
@@ -59,11 +60,11 @@ def is_straight_line(indices, vessel_type):
     for i in range(10):
 
         # Vertical
-        if cols.count(i) == VesselLength[vessel_type.upper()]:
+        if cols.count(i) == VesselLength[vessel_type]:
             return True
 
         # Horizontal
-        if rows.count(i) == VesselLength[vessel_type.upper()]:
+        if rows.count(i) == VesselLength[vessel_type]:
             return True
     return False
 
@@ -71,4 +72,4 @@ def is_straight_line(indices, vessel_type):
 @then("they are in a straight line")
 def then_they_are_in_a_straight_line(player, vessel_type):
     indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier[vessel_type.upper()])
-    assert is_straight_line(indices, vessel_type)
+    assert is_straight_line(indices, vessel_type.upper())
