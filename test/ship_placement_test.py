@@ -68,3 +68,17 @@ def describe_placing_ship():
         player = get_player
         player.place_vessel(Vessel.BATTLESHIP, (("C", "5"), ("C", "8")))
         assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == VesselIdentifier["BATTLESHIP"]
+
+    def place_horizontal_battleship_on_B2_B5_shape_is_5_test(get_player):
+        player = get_player
+        player.place_vessel(Vessel.BATTLESHIP, (("B", "2"), ("B", "5")))
+        indices = np.argwhere(player.ocean_grid.matrix == VesselIdentifier["BATTLESHIP"])
+        expected = np.array(
+            [
+                [column_mapping["B"], row_mapping["2"]],
+                [column_mapping["B"], row_mapping["3"]],
+                [column_mapping["B"], row_mapping["4"]],
+                [column_mapping["B"], row_mapping["5"]],
+            ],
+        )
+        np.testing.assert_array_equal(indices, expected)

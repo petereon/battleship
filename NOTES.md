@@ -194,3 +194,10 @@ Driver & Navigator: G
 - ✅ commit
 - 🚧 write the unit test for UAT 3.2
 - ⚠ commit
+
+## 22nd Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 write the unit tests and basic code for UAT 3.2
+- ⚠ commit
