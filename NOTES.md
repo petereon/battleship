@@ -201,7 +201,18 @@ Driver & Navigator: G
 
 - ✅ write the unit tests and basic code for UAT 3.2
 - ✅ commit
-- 🚧 write the bdd tests for UAT 3.3
+- ✅ write the bdd tests for UAT 3.3
+- ✅ commit
+- 🚧 write the unit tests for UAT 3.3
 - ⚠ commit
-- ⚠ write the unit tests for UAT 3.3
+
+## 23rd Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 write the unit tests for UAT 3.3
+- ⚠ commit
+- ⚠ write the bdd tests for UAT 3.4
+- ⚠ commit
+- ⚠ write the unit tests for UAT 3.4
 - ⚠ commit
