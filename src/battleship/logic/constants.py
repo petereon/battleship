@@ -21,6 +21,7 @@ class VesselIdentifier(IntEnum):
     BATTLESHIP = 8
     CRUISER = 7
     SUBMARINE = 6
+    DESTROYER = 5
 
 
 class VesselLength(IntEnum):
@@ -28,6 +29,7 @@ class VesselLength(IntEnum):
     BATTLESHIP = 4
     CRUISER = 3
     SUBMARINE = 3
+    DESTROYER = 2
 
 
 class Vessel(Enum):
@@ -35,3 +37,4 @@ class Vessel(Enum):
     BATTLESHIP = "BATTLESHIP"
     CRUISER = "CRUISER"
     SUBMARINE = "SUBMARINE"
+    DESTROYER = "DESTROYER"

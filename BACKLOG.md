@@ -159,7 +159,7 @@ And the submarine has 3 holes
   | C2, E2   |
   | J5, J7   |
 
-#### UAT 3.5 🚧
+#### UAT 3.5 ✅
 Given a player
 And the player's grids are set up
 When the player places the destroyer on their ocean grid
