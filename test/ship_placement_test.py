@@ -63,3 +63,8 @@ def describe_placing_ship():
             ],
         )
         np.testing.assert_array_equal(indices, expected)
+
+    def place_horizontal_battleship_on_C5_C8_start_hole_test(get_player):
+        player = get_player
+        player.place_vessel(Vessel.BATTLESHIP.value, (("C", "5"), ("C", "8")))
+        assert player.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == VesselIdentifier["BATTLESHIP"]

@@ -192,5 +192,5 @@ Driver & Navigator: G
 
 - ✅ write the bdd tests for UAT 3.2
 - ✅ commit
-- ⚠ write the unit test for UAT 3.2
+- 🚧 write the unit test for UAT 3.2
 - ⚠ commit
