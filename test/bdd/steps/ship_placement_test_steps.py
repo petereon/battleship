@@ -54,7 +54,6 @@ def then_the_vessel_has_specified_number_of_holes(player, number_of_holes, vesse
 
 
 def is_straight_line(indices, vessel_type):
-    print("!!!", list(zip(*indices)))
     cols, rows = list(zip(*indices))
 
     for i in range(10):
