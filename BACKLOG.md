@@ -185,7 +185,8 @@ Then the player receives an error message
 And there is no change to their ocean grid
 
   Examples:
-  | position   |
-  | HH, H8     |
-  | D2, blah   |
-  | J10, J12   |
+  | H H, H 8   |
+  | A 4, C 5   |
+  | A 7, A 10  |
+  | D 2, bl ah |
+  | J 10, J 12 |

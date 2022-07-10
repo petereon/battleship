@@ -7,6 +7,12 @@ from battleship.logic.constants import (
 from battleship.logic.grid import Grid
 
 
+class PositionError(Exception):
+    def __init__(self, message="Invalid position"):
+        self.message = message
+        super().__init__(self.message)
+
+
 class Player:
     def __init__(self):
         self.ocean_grid = Grid()
@@ -20,15 +26,18 @@ class Player:
         return ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx))
 
     def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
-        ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
-        self.ocean_grid.matrix[start_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
-        if start_column_idx != end_column_idx:
-            current_column_idx = start_column_idx
-            while current_column_idx < end_column_idx:
-                current_column_idx += 1
-                self.ocean_grid.matrix[current_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
-        else:
-            current_row_idx = start_row_idx
-            while current_row_idx < end_row_idx:
-                current_row_idx += 1
-                self.ocean_grid.matrix[start_column_idx][current_row_idx] = VesselIdentifier[vessel_type.value]
+        try:
+            ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
+            self.ocean_grid.matrix[start_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
+            if start_column_idx != end_column_idx:
+                current_column_idx = start_column_idx
+                while current_column_idx < end_column_idx:
+                    current_column_idx += 1
+                    self.ocean_grid.matrix[current_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
+            else:
+                current_row_idx = start_row_idx
+                while current_row_idx < end_row_idx:
+                    current_row_idx += 1
+                    self.ocean_grid.matrix[start_column_idx][current_row_idx] = VesselIdentifier[vessel_type.value]
+        except KeyError:
+            raise PositionError()

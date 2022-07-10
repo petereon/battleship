@@ -9,7 +9,7 @@ from battleship.logic.constants import (
     column_mapping,
     row_mapping,
 )
-from battleship.logic.player import Player
+from battleship.logic.player import Player, PositionError
 
 
 @pytest.fixture
@@ -133,3 +133,9 @@ def describe_placing_ship():
             ],
         )
         np.testing.assert_array_equal(indices, expected)
+
+    def place_destroyer_on_invalid_position_H_H_H_8_test(get_player):
+        player = get_player
+        with pytest.raises(PositionError) as exc:
+            player.place_vessel(Vessel.CRUISER, (("H", "H"), ("H", "8")))
+            assert exc.message == "Invalid position"
