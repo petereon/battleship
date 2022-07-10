@@ -11,9 +11,9 @@ Feature: Ship Placement
 
         Examples:
             | position |
-            | A1, A5   |
-            | A1, E1   |
-            | J5, J9   |
+            | A 1, A 5   |
+            | A 1, E 1   |
+            | J 5, J 9   |
 
     Scenario Outline: Placing a battleship in position
         Given a player
@@ -26,9 +26,9 @@ Feature: Ship Placement
 
         Examples:
             | position |
-            | A1, A4   |
-            | B1, E1   |
-            | J5, J8   |
+            | A 1, A 4   |
+            | B 1, E 1   |
+            | J 5, J 8   |
 
     Scenario Outline: Placing a cruiser in position
         Given a player
@@ -41,9 +41,9 @@ Feature: Ship Placement
 
         Examples:
             | position |
-            | H1, H3   |
-            | C1, E1   |
-            | J5, J7   |
+            | H 1, H 3   |
+            | C 1, E 1   |
+            | J 5, J 7   |
 
     Scenario Outline: Placing a submarine in position
         Given a player
@@ -56,9 +56,9 @@ Feature: Ship Placement
 
         Examples:
             | position |
-            | H7, H9   |
-            | C2, E2   |
-            | J5, J7   |
+            | H 7, H 9   |
+            | C 2, E 2   |
+            | J 5, J 7   |
 
     Scenario Outline: Placing a destroyer in position
         Given a player
@@ -71,6 +71,22 @@ Feature: Ship Placement
 
         Examples:
             | position |
-            | H7, H8   |
-            | D2, E2   |
-            | J5, J6   |
+            | H 7, H 8   |
+            | D 2, E 2   |
+            | J 5, J 6   |
+
+    Scenario Outline: Placing a destroyer in an invalid position
+        Given a player
+        And the player's grids are set up
+        When the player places the destroyer on their ocean grid
+        And chooses an invalid position <position>
+        Then the player receives an error message
+        And there is no change to their ocean grid
+
+        Examples:
+            | position   |
+            | H H, H 8   |
+            | A 4, C 5   |
+            | A 7, A 10  |
+            | D 2, bl ah |
+            | J 10, J 12 |

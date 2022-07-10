@@ -221,3 +221,12 @@ Driver & Navigator: G
 - ✅ write the unit tests for UAT 3.5
 - ✅ commit
 - ✅ write UAT 3.6 in the backlog for the negative case
+
+## 24th Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 write the bdd tests for UAT 3.6
+- ⚠ commit
+- ⚠ write the unit tests for UAT 3.6
+- ⚠ commit
