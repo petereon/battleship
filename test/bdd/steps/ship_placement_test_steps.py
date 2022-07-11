@@ -43,10 +43,10 @@ def when_the_player_chooses_the_position(position, player, vessel_type):
 
 @when(parsers.parse("chooses an invalid position {position}"), target_fixture="error_details")
 def when_the_player_chooses_an_invalid_position(position, player, vessel_type):
-    with pytest.raises(PositionError) as exc:
+    with pytest.raises(PositionError) as exception_info:
         scenario("../features/ship_placement.feature", "Placing a destroyer in an invalid position")
         player.place_vessel(Vessel[vessel_type], get_position_coordinates(position))
-    return exc
+    return exception_info
 
 
 @then(parsers.parse("the {vessel_type} in position {position} on the ocean grid"))
@@ -86,7 +86,7 @@ def then_they_are_in_a_straight_line(player, vessel_type):
 
 @then("the player receives an error message")
 def then_the_player_received_an_error_message(error_details):
-    assert error_details == "Invalid position"
+    assert str(error_details.value) == "Invalid position"
 
 
 @then("there is no change to their ocean grid")
