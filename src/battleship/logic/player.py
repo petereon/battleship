@@ -5,7 +5,11 @@ from battleship.logic.constants import (
     row_mapping,
 )
 from battleship.logic.grid import Grid
-from battleship.logic.util import is_straight_line
+from battleship.logic.util import (
+    is_position_on_board,
+    is_straight_line,
+    is_valid_length,
+)
 
 
 class PositionError(Exception):
@@ -28,7 +32,7 @@ class Player:
 
     def place_vessel(self, vessel_type: Vessel, coordinates: tuple):
         try:
-            if not is_straight_line(coordinates):
+            if not is_position_on_board(coordinates) or not is_straight_line(coordinates) or not is_valid_length(coordinates, vessel_type):
                 raise PositionError()
             ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx)) = self.get_ship_coordinates(coordinates)
             self.ocean_grid.matrix[start_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
@@ -42,5 +46,5 @@ class Player:
                 while current_row_idx < end_row_idx:
                     current_row_idx += 1
                     self.ocean_grid.matrix[start_column_idx][current_row_idx] = VesselIdentifier[vessel_type.value]
-        except KeyError:
+        except PositionError:
             raise PositionError()
