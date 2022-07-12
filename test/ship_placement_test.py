@@ -139,3 +139,9 @@ def describe_placing_ship():
         with pytest.raises(PositionError) as exception_info:
             player.place_vessel(Vessel.DESTROYER, (("H", "H"), ("H", "8")))
         assert str(exception_info.value) == "Invalid position"
+
+    def place_destroyer_on_invalid_position_A_4_C_5_test(get_player):
+        player = get_player
+        with pytest.raises(PositionError) as exception_info:
+            player.place_vessel(Vessel.DESTROYER, (("A", "4"), ("C", "5")))
+        assert str(exception_info.value) == "Invalid position"

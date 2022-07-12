@@ -226,7 +226,22 @@ Driver & Navigator: G
 
 Driver & Navigator: G
 
-- 🚧 write the bdd tests for UAT 3.6
+- ✅ write the bdd tests for UAT 3.6
+- ✅ commit
+- 🚧 write the unit tests for UAT 3.6
 - ⚠ commit
-- ⚠ write the unit tests for UAT 3.6
+
+## 25th Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 write the unit tests for UAT 3.6
+- ⚠ commit
+
+## 26th Pomodoro
+
+Driver: G
+Navigator: Petko
+
+- 🚧 write the unit tests for UAT 3.6
 - ⚠ commit
