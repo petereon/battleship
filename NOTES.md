@@ -245,3 +245,12 @@ Navigator: Petko
 
 - 🚧 write the unit tests for UAT 3.6
 - ⚠ commit
+
+## 27th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- ⚠ Refactor `place_vessel`
+- ⚠ commit
+- ⚠ Write the backlog of scenarios that we need to complete for the logic

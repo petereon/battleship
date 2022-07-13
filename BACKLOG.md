@@ -176,7 +176,7 @@ And the destroyer has 2 holes
   | J5, J6   |
 
 
-#### UAT 3.6 🚧
+#### UAT 3.6 ✅
 Given a player
 And the player's grids are set up
 When the player places the destroyer on their ocean grid
