@@ -80,7 +80,7 @@ __Then__ the two game units are set up with grids
 __And__ each grid is empty
 __And__ each grid is 10 x 10
 
-### Story telling 3 🚧
+### Story telling 3 ✅
 
 Both players place 5 ships on their ocean grid.  The ships are:
   - Carrier (5 holes)
@@ -89,7 +89,7 @@ Both players place 5 ships on their ocean grid.  The ships are:
   - Submarine (3 holes)
   - Destroyer (2 holes)
 
-#### User Story 3 🚧
+#### User Story 3 ✅
 
 __As a__ game player
 __I want__ to place ships on my ocean grid
@@ -190,3 +190,119 @@ And there is no change to their ocean grid
   | A 7, A 10  |
   | D 2, bl ah |
   | J 10, J 12 |
+
+#### Story telling 4 ⚠
+After the vessels have all been placed on the game units.  The game player makes a move by choosing a target hole on their target grid.
+
+### User Story 4 ⚠
+__As a__ a game player  
+__I want__ choose a hole on a target grid  
+__So that__ so that I can make a target shot  
+
+#### UAT 4.1 ⚠
+Given my target grid  
+When I choose the hole on my target grid  
+Then I know if it's available  
+
+#### Storytelling 5 ⚠
+After the shot was made.  The game announces if the shot was a hit or a miss.
+
+### User Story 5 ⚠
+__As a__ a game player  
+__I want__ the game to announce the shot status  
+__So that__ I know that it is a hit or a miss  
+
+#### UAT 5.1 ⚠
+Given a target grid  
+And an ocean grid  
+And an available hole <hole>  
+When I take my shot  
+Then the game announces if the shot was a <status>  
+
+  Examples:  
+  | hole | status |  
+  | A1   | hit    |  
+  | A1   | miss   |  
+  | J5   | hit    |  
+
+#### Storytelling 6 ⚠
+After the shot was announced as being a hit.  The game places a red peg on the shot position on both the target grid and the ocean grid.
+
+### User Story 6 ⚠
+__As a__ a game player
+__I want__ the game to place a red peg on the shot position on both the target grid and the ocean grid
+__So that__ I know that it was a hit
+
+#### UAT 6.1 ⚠
+Given I have took my shot
+And it was a hit
+And my target grid
+When the game places the peg on my target grid
+Then the color of the peg is red
+
+#### UAT 6.2 ⚠
+Given I have took my shot
+And it was a hit
+And opponent's ocean grid
+When the game places the peg on opponent's ocean grid
+Then the color of the peg is red
+
+#### Storytelling 7 ⚠
+After the shot was announced as being a miss.  The game places a white peg on the shot position on the target grid.
+
+### User Story 7 ⚠
+__As a__ a game player
+__I want__ the game to place a white peg on the shot position on the target grid
+__So that__ I know that it was a miss
+
+#### UAT 7.1 ⚠
+Given I have took my shot  
+And it was a miss  
+And my target grid  
+When the game places the peg on my target grid  
+Then the color of the peg is white  
+
+#### Storytelling 8 ⚠
+After a red peg was placed.  The game announces that the player has sunk a ship and indicate it.
+
+### User Story 8.1 ⚠
+__As a__ a game player  
+__I want__ the game to announce that the I have sunk the ship 
+__So that__ I know that the ship has been sunk  
+
+#### UAT 8.1.1 ⚠
+Given I have sunk a ship
+When the game checks the sunk ship status
+Then the game announces that the ship has been sunk
+
+### User Story 8.2 ⚠
+__As a__ a game player  
+__I want__ the game to indicate that the I have sunk a ship 
+__So that__ I know how many ships I have sunk
+
+#### UAT 8.2.1 ⚠
+Given I have an empty target grid  
+And an empty sunk ship indicator  
+When the game starts  
+Then it contains 5 empty holes  
+
+#### UAT 8.2.2 ⚠
+Given I have sunk a ship
+When the game checks the sunk ship status
+Then the game adds a red peg to the sunk ship indicator
+
+#### Storytelling 9 ⚠
+After each move has been made.  The game passes the initiative to the opponent.
+
+### User Story 9 ⚠
+__As a__ a game player  
+__I want__ the game to pass the initiative to the opponent  
+__So that__ they can make a move  
+
+#### Storytelling 10 ⚠
+After all of the opponent's 5 ships have been sunk. Then the game declares me as a winner.
+
+### User Story 10 ⚠
+__As a__ a game player  
+__I want__ the game to declare me as a winner when I've sunk all of the opponent's 5 ships  
+__So that__ I know that I won  

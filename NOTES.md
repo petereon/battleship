@@ -251,6 +251,13 @@ Navigator: Petko
 Driver: Petko
 Navigator: G
 
-- ⚠ Refactor `place_vessel`
-- ⚠ commit
+- ✅ Refactor `place_vessel`
+- ✅ commit
 - ⚠ Write the backlog of scenarios that we need to complete for the logic
+
+## 28th Pomodoro
+
+Driver: G
+Navigator: Petko
+
+- 🚧 Write the backlog of scenarios that we need to complete for the logic
