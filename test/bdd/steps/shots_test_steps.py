@@ -13,8 +13,6 @@ def player():
 
 @given("my target grid", target_fixture="target_grid")
 def given_my_target_grid():
-    # player = Player()
-    # return player.target_grid
     return Grid()
 
 
