@@ -47,3 +47,6 @@ class Player:
             self.__place_valid_vessel(start_column_idx, end_column_idx, start_row_idx, end_row_idx, vessel_type)
         except PositionError:
             raise PositionError()
+
+    def is_hole_available(self, hole: tuple) -> bool:
+        return True

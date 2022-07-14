@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from pytest_bdd import given, parsers, scenarios, then, when
 
@@ -22,6 +24,7 @@ def when_I_choose_the_hole_on_my_target_grid(hole, target_grid, player):
     return player.is_hole_available(hole)
 
 
-@then(parsers.parse("I know if it's available {available:b}"))
+@then(parsers.parse("I know if it's available {available}"), converters={"available": json.loads})
 def then_I_know_if_it_s_available(available, is_available):
+    print(f"is_available: {is_available}", f"available: {available}")
     assert is_available == available

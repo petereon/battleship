@@ -7,6 +7,6 @@ Feature: Shots taken during the game
 
         Examples:
             | hole | available |
-            | A1   | True      |
-            | B7   | True      |
-            | H8   | False     |
+            | A1   | true      |
+            | H8   | false     |
+            | B7   | true      |
