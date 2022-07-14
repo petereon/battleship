@@ -257,8 +257,8 @@ Navigator: G
 
 ## 28th Pomodoro
 
-Driver: G
-Navigator: Petko
+Driver: G  
+Navigator: Petko  
 
 - 🚧 Write the backlog of scenarios that we need to complete for the logic
 
@@ -269,3 +269,11 @@ Mob Programming
 
 - 🚧 Write the backlog of UATs that we need to complete for the logic
 - ⚠ Fix the uncovered lines
+
+## 30th Pomodoro
+
+Driver: G  
+Navigator: Petko 
+
+- ⚠ Features for the UAT 4.1
+- ⚠ commit
