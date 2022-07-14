@@ -261,3 +261,11 @@ Driver: G
 Navigator: Petko
 
 - 🚧 Write the backlog of scenarios that we need to complete for the logic
+
+
+## 29th Pomodoro
+
+Mob Programming  
+
+- 🚧 Write the backlog of UATs that we need to complete for the logic
+- ⚠ Fix the uncovered lines

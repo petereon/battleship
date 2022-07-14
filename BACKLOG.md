@@ -299,6 +299,13 @@ __As a__ a game player
 __I want__ the game to pass the initiative to the opponent  
 __So that__ they can make a move  
 
+#### UAT 9.1 ⚠
+Given my target grid <my target grid>  
+And opponent's target grid <opponent target grid>  
+When I take the shot  
+Then the game does not end  
+And the opponent can take the shot  
+
 #### Storytelling 10 ⚠
 After all of the opponent's 5 ships have been sunk. Then the game declares me as a winner.
 
@@ -306,3 +313,8 @@ After all of the opponent's 5 ships have been sunk. Then the game declares me as
 __As a__ a game player  
 __I want__ the game to declare me as a winner when I've sunk all of the opponent's 5 ships  
 __So that__ I know that I won  
+
+#### UAT 10.1 ⚠
+Given I have sunk all of the opponent's 5 ships
+When the game checks the sunk ship status
+Then the game announces that I won
