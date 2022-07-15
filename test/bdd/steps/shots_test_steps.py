@@ -21,6 +21,7 @@ def given_my_target_grid():
 @when(parsers.parse("I choose the hole {hole} on my target grid"), target_fixture="is_available")
 def when_I_choose_the_hole_on_my_target_grid(hole, target_grid, player):
     player.target_grid = target_grid
+
     return player.is_hole_available(hole)
 
 

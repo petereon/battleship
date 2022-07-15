@@ -18,9 +18,9 @@ def describe_player():
 def describe_is_hole_available():
     def test_shot_available_at_A1():
         player = Player()
-        assert player.is_hole_available((column_mapping["A"], row_mapping["1"])) is True
+        assert player.is_hole_available(("A", "1")) is True
 
     def test_shot_taken_by_white_peg_at_C5():
         player = Player()
         player.target_grid.matrix[column_mapping["C"]][row_mapping["5"]] = Peg.WHITE
-        assert player.is_hole_available((column_mapping["C"], row_mapping["5"])) is False
+        assert player.is_hole_available(("C", "5")) is False
