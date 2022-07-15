@@ -283,5 +283,5 @@ Navigator: Petko
 Driver: Petko  
 Navigator: G  
 
-- 🚧 Implement the unit tests for the UAT 4.1
-- ⚠ commit
+- ✅ Implement the unit tests for the UAT 4.1
+- ✅ commit
