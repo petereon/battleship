@@ -1,5 +1,11 @@
 from enum import Enum, IntEnum
 
+
+class Peg(IntEnum):
+    WHITE = 1
+    RED = -1
+
+
 column_mapping = {
     "A": 0,
     "B": 1,

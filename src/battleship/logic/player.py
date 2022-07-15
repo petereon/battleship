@@ -49,4 +49,6 @@ class Player:
             raise PositionError()
 
     def is_hole_available(self, hole: tuple) -> bool:
-        return True
+        print(hole[0], hole[1])
+        target_hole = self.target_grid.matrix[hole[0]][hole[1]]
+        return bool(target_hole == 0)

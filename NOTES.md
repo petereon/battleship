@@ -275,5 +275,13 @@ Mob Programming
 Driver: G  
 Navigator: Petko 
 
-- ⚠ Features for the UAT 4.1
+- 🚧 Features for the UAT 4.1
+- ⚠ commit
+
+## 31st Pomodoro
+
+Driver: Petko  
+Navigator: G  
+
+- 🚧 Implement the unit tests for the UAT 4.1
 - ⚠ commit
