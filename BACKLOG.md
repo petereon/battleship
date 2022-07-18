@@ -191,33 +191,33 @@ And there is no change to their ocean grid
   | D 2, bl ah |
   | J 10, J 12 |
 
-#### Story telling 4 🚧
+#### Story telling 4 ✅
 After the vessels have all been placed on the game units.  The game player makes a move by choosing a target hole on their target grid.
 
-### User Story 4 🚧
+### User Story 4 ✅
 __As a__ a game player  
 __I want__ choose a hole on a target grid  
 __So that__ so that I can make a target shot  
 
-#### UAT 4.1 🚧
+#### UAT 4.1 ✅
 Given my target grid  
 When I choose the hole on my target grid  
 Then I know if it's available  
 
-#### UAT 4.2 ⚠
+#### UAT 4.2 ✅
 Given my target grid  
 When I choose the hole off my target grid  
 Then I know it's unavailable
 
-#### Storytelling 5 ⚠
+#### Storytelling 5 🚧
 After the shot was made.  The game announces if the shot was a hit or a miss.
 
-### User Story 5 ⚠
+### User Story 5 🚧
 __As a__ a game player  
 __I want__ the game to announce the shot status  
 __So that__ I know that it is a hit or a miss  
 
-#### UAT 5.1 ⚠
+#### UAT 5.1 🚧
 Given a target grid  
 And an ocean grid  
 And an available hole <hole>  

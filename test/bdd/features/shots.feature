@@ -11,3 +11,19 @@ Feature: Shots taken during the game
             | A1   | B2         | true      |
             | H8   | H8         | false     |
             | B7   | A1         | true      |
+
+
+    Scenario Outline: Status is announced after each shot
+        Given a player
+        And my target grid
+        And an ocean grid
+        And an available hole <hole>
+        When I take my shot
+        And \
+        Then the game announces if the shot was a <status>
+
+        Examples:
+            | hole | status |
+            | A1   | hit    |
+            | A1   | miss   |
+            | J5   | hit    |
