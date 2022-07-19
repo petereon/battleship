@@ -209,15 +209,15 @@ Given my target grid
 When I choose the hole off my target grid  
 Then I know it's unavailable
 
-#### Storytelling 5 🚧
+#### Storytelling 5 ✅
 After the shot was made.  The game announces if the shot was a hit or a miss.
 
-### User Story 5 🚧
+### User Story 5 ✅
 __As a__ a game player  
 __I want__ the game to announce the shot status  
 __So that__ I know that it is a hit or a miss  
 
-#### UAT 5.1 🚧
+#### UAT 5.1 ✅
 Given I have taken a shot at the hole <hole>
 And the opponent's ocean grid
 When the game checks the shot status  
