@@ -14,13 +14,10 @@ Feature: Shots taken during the game
 
 
     Scenario Outline: Status is announced after each shot
-        Given a player
-        And my target grid
-        And an ocean grid
-        And an available hole <hole>
-        When I take my shot
-        And \
-        Then the game announces if the shot was a <status>
+        Given I have taken a shot at the hole <hole>
+        And the opponent's ocean grid
+        When the game checks the shot status
+        Then the status is <status>
 
         Examples:
             | hole | status |

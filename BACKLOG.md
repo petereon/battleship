@@ -218,11 +218,10 @@ __I want__ the game to announce the shot status
 __So that__ I know that it is a hit or a miss  
 
 #### UAT 5.1 🚧
-Given a target grid  
-And an ocean grid  
-And an available hole <hole>  
-When I take my shot  
-Then the game announces if the shot was a <status>  
+Given I have taken a shot at the hole <hole>
+And the opponent's ocean grid
+When the game checks the shot status  
+Then the status is <status>
 
   Examples:  
   | hole | status |  

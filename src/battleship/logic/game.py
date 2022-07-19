@@ -8,6 +8,7 @@ class Game:
     def __init__(self):
         self.player1 = Player()
         self.player2 = Player()
+        self.opponent = self.player2
 
     def check_game_status(self, shot_hole: tuple) -> bool:
         column, row = (column_mapping[shot_hole[0]], row_mapping[shot_hole[1]])
