@@ -296,8 +296,16 @@ Navigator: Petko
 
 ## 33rd Pomodoro
 
-Navigator: Petko
-Driver: G
+Driver: Petko
+Navigator: G
+
+- 🚧 Implement the unit tests for the UAT 5.1
+- ⚠ commit
+
+## 34th Pomodoro
+
+Driver: Petko
+Navigator: G
 
 - 🚧 Implement the unit tests for the UAT 5.1
 - ⚠ commit
