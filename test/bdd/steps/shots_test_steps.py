@@ -44,20 +44,20 @@ def then_I_know_if_it_s_available(available, is_available):
 
 @given(parsers.parse("I have taken a shot at the hole {hole}"), target_fixture="target_hole")
 def given_i_have_taken_a_shot_at_the_hole(hole):
-    return (column_mapping[hole[0]], row_mapping[hole[1]])
+    return hole
 
 
-@given("the opponent's ocean grid")
-def given_the_opponents_ocean_grid():
-    game = Game()
-    return game.opponent.ocean_grid
+@given(parsers.parse("the opponent's ocean grid with hole {hole} is filled {is_filled}"), converters={"is_filled": json.loads})
+def given_the_opponents_ocean_grid(game, hole, is_filled):
+    column, row = (column_mapping[hole[0]], row_mapping[hole[1]])
+    game.opponent.ocean_grid.matrix[column][row] = is_filled
 
 
 @when("the game checks the shot status", target_fixture="shot_status")
-def when_the_game_checks_the_shot_status(target_hole):
+def when_the_game_checks_the_shot_status(target_hole, game):
     return game.check_shot_status(target_hole)
 
 
-@then(parsers.parse("the status is {status}"))
+@then(parsers.parse("the status is {status}"), converters={"status": json.loads})
 def given_a_player(status, shot_status):
     assert shot_status == status

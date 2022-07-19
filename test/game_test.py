@@ -19,7 +19,7 @@ def describe_game_creates_grids():
             assert game.player2 == "testing"
 
 
-def describe_check_game_status():
+def describe_check_shot_status():
     with mock.patch("battleship.logic.game.Player", return_value="testing") as player:
         player.ocean_grid = Grid()
         player.ocean_grid.matrix[column_mapping["B"]][row_mapping["2"]] = 2
@@ -27,7 +27,7 @@ def describe_check_game_status():
         game.opponent = player
 
         def test_shot_is_a_hit():
-            assert game.check_game_status(("B", "2")) is True
+            assert game.check_shot_status(("B", "2")) is True
 
         def test_shot_is_a_miss():
-            assert game.check_game_status(("B", "3")) is False
+            assert game.check_shot_status(("B", "3")) is False

@@ -15,12 +15,12 @@ Feature: Shots taken during the game
 
     Scenario Outline: Status is announced after each shot
         Given I have taken a shot at the hole <hole>
-        And the opponent's ocean grid
+        And the opponent's ocean grid with hole <hole> is filled <is_filled>
         When the game checks the shot status
         Then the status is <status>
 
         Examples:
-            | hole | status |
-            | A1   | hit    |
-            | A1   | miss   |
-            | J5   | hit    |
+            | hole | is_filled | status |
+            | A1   | true      | true   |
+            | A1   | false     | false  |
+            | J5   | true      | true   |

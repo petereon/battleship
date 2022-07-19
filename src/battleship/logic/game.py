@@ -10,6 +10,6 @@ class Game:
         self.player2 = Player()
         self.opponent = self.player2
 
-    def check_game_status(self, shot_hole: tuple) -> bool:
+    def check_shot_status(self, shot_hole: tuple) -> bool:
         column, row = (column_mapping[shot_hole[0]], row_mapping[shot_hole[1]])
         return bool(self.opponent.ocean_grid.matrix[column][row] != 0)
