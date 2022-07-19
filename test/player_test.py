@@ -24,3 +24,10 @@ def describe_is_hole_available():
         player = Player()
         player.target_grid.matrix[column_mapping["C"]][row_mapping["5"]] = Peg.WHITE
         assert player.is_hole_available(("C", "5")) is False
+
+
+def describe_taking_a_shot():
+    player = Player()
+
+    def test_take_shot():
+        assert player.take_shot(("C", "5")) is None
