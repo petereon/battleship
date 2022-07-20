@@ -229,15 +229,15 @@ Then the status is <status>
   | A1   | miss   |  
   | J5   | hit    |  
 
-#### Storytelling 6 ⚠
+#### Storytelling 6 🚧
 After the shot was announced as being a hit.  The game places a red peg on the shot position on both the target grid and the ocean grid.
 
-### User Story 6 ⚠
+### User Story 6 🚧
 __As a__ a game player
 __I want__ the game to place a red peg on the shot position on both the target grid and the ocean grid
 __So that__ I know that it was a hit
 
-#### UAT 6.1 ⚠
+#### UAT 6.1 🚧
 Given I have took my shot
 And it was a hit
 And my target grid

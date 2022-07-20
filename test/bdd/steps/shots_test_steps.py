@@ -61,3 +61,27 @@ def when_the_game_checks_the_shot_status(target_hole, game):
 @then(parsers.parse("the status is {status}"), converters={"status": json.loads})
 def given_a_player(status, shot_status):
     assert shot_status == status
+
+
+@given("it was a hit")
+def given_it_was_a_hit():
+    pass
+
+
+@given(parsers.parse("opponent's ocean grid has a vessel at hole {hole}"))
+def given_target_grid_has_a_vessel_at_hole(hole, game):
+    column, row = (column_mapping[hole[0]], row_mapping[hole[1]])
+    grid = Grid()
+    game.opponent.ocean_grid = grid
+    grid.matrix[column][row] = 9
+
+
+@when(parsers.parse("the game places the peg on my target grid at {hole}"))
+def when_the_game_places_the_peg_on_my_target_grid_at(hole, game):
+    game.place_peg(hole)
+
+
+@then("the color of the peg is red")
+def then_the_color_of_the_peg_is_red(target_hole, game):
+    column, row = (column_mapping[target_hole[0]], row_mapping[target_hole[1]])
+    assert game.player1.target_grid.matrix[column][row] == Peg.RED

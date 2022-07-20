@@ -24,3 +24,15 @@ Feature: Shots taken during the game
             | A1   | true      | true   |
             | A1   | false     | false  |
             | J5   | true      | true   |
+
+    Scenario Outline: The game player makes a move by choosing a target hole on their target grid
+        Given I have taken a shot at the hole <hole>
+        And it was a hit
+        And opponent's ocean grid has a vessel at hole <hole>
+        When the game places the peg on my target grid at <hole>
+        Then the color of the peg is red
+
+        Examples:
+            | hole |
+            | B5   |
+            | C9   |
