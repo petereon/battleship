@@ -1,7 +1,7 @@
 from unittest import mock
 
 from battleship.logic import Game, Grid
-from battleship.logic.constants import column_mapping, row_mapping
+from battleship.logic.constants import Peg, column_mapping, row_mapping
 
 
 def test_game_initialization():
@@ -31,3 +31,12 @@ def describe_check_shot_status():
 
         def test_shot_is_a_miss():
             assert game.check_shot_status(("B", "3")) is False
+
+
+def describe_place_peg():
+    with mock.patch("battleship.logic.game.Game.check_shot_status", return_value=True):
+        game = Game()
+
+        def place_red_peg():
+            game.place_peg(("C", "5"))
+            assert game.current_player.target_grid.matrix[2][4] == Peg.RED
