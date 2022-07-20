@@ -81,10 +81,16 @@ def when_the_game_places_the_peg_on_my_target_grid(hole, game):
     game.place_peg(hole)
 
 
-@then("the color of the peg is red")
-def then_the_color_of_the_peg_is_red(target_hole, game):
+@then("the color of the target grid peg is red")
+def then_the_color_of_the_target_grid_peg_is_red(target_hole, game):
     column, row = (column_mapping[target_hole[0]], row_mapping[target_hole[1]])
-    assert game.player1.target_grid.matrix[column][row] == Peg.RED
+    assert game.current_player.target_grid.matrix[column][row] == Peg.RED
+
+
+@then("the color of the ocean grid peg is red")
+def then_the_color_of_the_ocean_grid_peg_is_red(target_hole, game):
+    column, row = (column_mapping[target_hole[0]], row_mapping[target_hole[1]])
+    assert game.opponent.ocean_grid.matrix[column][row] == Peg.RED
 
 
 @when(parsers.parse("the game places the peg on opponent's ocean grid at {hole}"))

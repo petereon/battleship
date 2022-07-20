@@ -18,6 +18,7 @@ class Game:
 
     def place_peg(self, hole: tuple):
         column, row = (column_mapping[hole[0]], row_mapping[hole[1]])
+        self.opponent.ocean_grid.matrix[column][row] = Peg.RED
         if self.check_shot_status(hole):
             self.current_player.target_grid.matrix[column][row] = Peg.RED
         else:

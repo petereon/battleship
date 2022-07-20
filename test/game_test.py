@@ -33,7 +33,7 @@ def describe_check_shot_status():
             assert game.check_shot_status(("B", "3")) is False
 
 
-def describe_place_peg_target_grid():
+def describe_place_peg_current_players_target_grid():
     def place_red_peg():
         game = Game()
         game.check_shot_status = mock.MagicMock(return_value=True)
@@ -45,3 +45,10 @@ def describe_place_peg_target_grid():
         game.check_shot_status = mock.MagicMock(return_value=False)
         game.place_peg(("A", "1"))
         assert game.current_player.target_grid.matrix[column_mapping["A"]][row_mapping["1"]] == Peg.WHITE
+
+
+def test_place_red_peg_opponents_ocean_grid():
+    game = Game()
+    game.check_shot_status = mock.MagicMock(return_value=True)
+    game.place_peg(("C", "5"))
+    assert game.opponent.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == Peg.RED

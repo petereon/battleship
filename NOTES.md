@@ -331,5 +331,15 @@ Navigator: G
 Driver: G
 Navigator: Petko
 
-- 🚧 Implement the unit tests for the UAT 6.1
-- ⚠ commit
+- ✅ Implement the unit tests for the UAT 6.1
+- ✅ commit
+- ✅ Implement the BDD tests for the UAT 6.2
+- ✅ commit
+
+## 38th Pomodoro
+
+Driver: Petko  
+Navigator: G   
+
+- ✅ Implement the unit tests for UAT 6.2
+- ✅ commit
