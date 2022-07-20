@@ -36,3 +36,16 @@ Feature: Shots taken during the game
             | hole |
             | B5   |
             | C9   |
+
+    Scenario Outline: The opponent player updates their ocean grid with the move that current player made
+
+        Given I have took my shot at the hole <hole>
+        And it was a hit
+        And opponent's ocean grid has a vessel at hole <hole>
+        When the game places the peg on opponent's ocean grid at <hole>
+        Then the color of the peg is red
+
+        Examples:
+            | hole |
+            | C3   |
+            | J5   |

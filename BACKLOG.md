@@ -237,14 +237,14 @@ __As a__ a game player
 __I want__ the game to place a red peg on the shot position on both the target grid and the ocean grid
 __So that__ I know that it was a hit
 
-#### UAT 6.1 🚧
+#### UAT 6.1 ✅
 Given I have took my shot
 And it was a hit
 And my target grid
 When the game places the peg on my target grid
 Then the color of the peg is red
 
-#### UAT 6.2 ⚠
+#### UAT 6.2 🚧
 Given I have took my shot
 And it was a hit
 And opponent's ocean grid

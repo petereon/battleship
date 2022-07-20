@@ -33,7 +33,7 @@ def describe_check_shot_status():
             assert game.check_shot_status(("B", "3")) is False
 
 
-def describe_place_peg():
+def describe_place_peg_target_grid():
     def place_red_peg():
         game = Game()
         game.check_shot_status = mock.MagicMock(return_value=True)
