@@ -34,15 +34,14 @@ def describe_check_shot_status():
 
 
 def describe_place_peg():
-    game = Game()
-    with mock.patch("battleship.logic.game.Game.check_shot_status", return_value=True):
+    def place_red_peg():
+        game = Game()
+        game.check_shot_status = mock.MagicMock(return_value=True)
+        game.place_peg(("C", "5"))
+        assert game.current_player.target_grid.matrix[column_mapping["C"]][row_mapping["5"]] == Peg.RED
 
-        def place_red_peg():
-            game.place_peg(("C", "5"))
-            assert game.current_player.target_grid.matrix[column_mapping["C"]][row_mapping["5"]] == Peg.RED
-
-    with mock.patch("battleship.logic.game.Game.check_shot_status", return_value=False):
-
-        def place_white_peg():
-            game.place_peg(("A", "1"))
-            assert game.current_player.target_grid.matrix[column_mapping["A"]][row_mapping["1"]] == Peg.WHITE
+    def place_white_peg():
+        game = Game()
+        game.check_shot_status = mock.MagicMock(return_value=False)
+        game.place_peg(("A", "1"))
+        assert game.current_player.target_grid.matrix[column_mapping["A"]][row_mapping["1"]] == Peg.WHITE
