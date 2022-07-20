@@ -343,3 +343,5 @@ Navigator: G
 
 - ✅ Implement the unit tests for UAT 6.2
 - ✅ commit
+- ✅ Implement the BDD tests for UAT 7.1
+- ✅ commit

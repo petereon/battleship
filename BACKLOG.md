@@ -259,7 +259,7 @@ __As a__ a game player
 __I want__ the game to place a white peg on the shot position on the target grid
 __So that__ I know that it was a miss
 
-#### UAT 7.1 🚧
+#### UAT 7.1 ✅
 Given I have took my shot  
 And it was a miss  
 And my target grid  

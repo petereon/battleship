@@ -25,7 +25,7 @@ Feature: Shots taken during the game
             | A1   | false     | false  |
             | J5   | true      | true   |
 
-    Scenario Outline: The game player makes a move by choosing a target hole on their target grid
+    Scenario Outline: The game player makes a move by choosing a target hole on their target grid and hits
         Given I have taken a shot at the hole <hole>
         And it was a hit
         And opponent's ocean grid has a vessel at hole <hole>
@@ -49,3 +49,15 @@ Feature: Shots taken during the game
             | hole |
             | C3   |
             | J5   |
+
+    Scenario Outline: The game player makes a move by choosing a target hole on their target grid and misses
+        Given I have taken a shot at the hole <hole>
+        And it was a miss
+        And opponent's ocean grid has a vessel at hole <hole>
+        When the game places the peg on my target grid at <hole>
+        Then the color of the target grid peg is white
+
+        Examples:
+            | hole |
+            | B5   |
+            | C9   |

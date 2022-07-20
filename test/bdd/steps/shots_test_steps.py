@@ -63,8 +63,8 @@ def given_a_player(status, shot_status):
     assert shot_status == status
 
 
-@given("it was a hit")
-def given_it_was_a_hit():
+@given(parsers.parse("it was a {smth}"))
+def given_it_was_a_hit_or_miss():
     pass
 
 
@@ -81,10 +81,10 @@ def when_the_game_places_the_peg_on_my_target_grid(hole, game):
     game.place_peg(hole)
 
 
-@then("the color of the target grid peg is red")
-def then_the_color_of_the_target_grid_peg_is_red(target_hole, game):
+@then(parsers.parse("the color of the target grid peg is {color}"))
+def then_the_color_of_the_target_grid_peg_is_red(target_hole, game, color):
     column, row = (column_mapping[target_hole[0]], row_mapping[target_hole[1]])
-    assert game.current_player.target_grid.matrix[column][row] == Peg.RED
+    assert game.current_player.target_grid.matrix[column][row] == Peg.RED if color == "red" else Peg.WHITE
 
 
 @then("the color of the ocean grid peg is red")
