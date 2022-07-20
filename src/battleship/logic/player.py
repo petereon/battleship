@@ -56,4 +56,4 @@ class Player:
         return bool(target_hole == 0)
 
     def take_shot(self, hole: tuple) -> None:
-        self.current_shot = (2, 4)
+        self.current_shot = (column_mapping[hole[0]], row_mapping[hole[1]])

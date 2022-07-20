@@ -1,5 +1,7 @@
 from unittest import mock
 
+import pytest
+
 from battleship.logic import Grid, Player
 from battleship.logic.constants import Peg, column_mapping, row_mapping
 
@@ -29,7 +31,8 @@ def describe_is_hole_available():
 def describe_taking_a_shot():
     player = Player()
 
-    def test_take_shot():
-        player.take_shot(("C", "5"))
+    @pytest.mark.parametrize("coord", [("C", "5"), ("A", "1"), ("J", "3")])
+    def test_take_shot(coord):
+        player.take_shot(coord)
 
-        assert player.current_shot == (column_mapping["C"], row_mapping["5"])
+        assert player.current_shot == (column_mapping[coord[0]], row_mapping[coord[1]])
