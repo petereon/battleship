@@ -30,4 +30,6 @@ def describe_taking_a_shot():
     player = Player()
 
     def test_take_shot():
-        assert player.take_shot(("C", "5")) is None
+        player.take_shot(("C", "5"))
+
+        assert player.current_shot == (column_mapping["C"], row_mapping["5"])

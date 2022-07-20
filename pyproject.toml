@@ -75,7 +75,7 @@ max-complexity = 18
 select = ["B","C","E","F","W","T4","B9"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 detect-secrets = "^1.2.0"
 toml-sort = "^0.20.0"
 pyproject-flake8 = "^0.0.1-alpha.4"
@@ -98,7 +98,7 @@ pytest = "^6.0.0"
 pytest-watch = "^4.2.0"
 pytest-describe = "^2.0.0"
 pytest-describe-it = "^0.1.0"
-mutatest = "^3.1.0"
+mutatest = "*"
 
 # Pytest: Coverage
 pytest-cov = "^3.0.0"

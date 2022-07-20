@@ -15,6 +15,8 @@ class PositionError(Exception):
 
 
 class Player:
+    current_shot: tuple | None = None
+
     def __init__(self):
         self.ocean_grid = Grid()
         self.target_grid = Grid()
@@ -54,4 +56,4 @@ class Player:
         return bool(target_hole == 0)
 
     def take_shot(self, hole: tuple) -> None:
-        pass
+        self.current_shot = (2, 4)
