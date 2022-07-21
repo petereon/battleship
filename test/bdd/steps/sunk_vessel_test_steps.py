@@ -21,8 +21,8 @@ def game():
 def given_i_have_sunk_a_vessel(vessel_type, game):
     length = VesselLength[vessel_type.upper()]
     for i in range(length):
-        game.current_player.target_grid.matrix[column_mapping["A"]][i] = VesselIdentifier[vessel_type.upper()]
-        game.opponent.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
+        game.opponent.ocean_grid.matrix[column_mapping["A"]][i] = VesselIdentifier[vessel_type.upper()]
+        game.current_player.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
     return game
 
 

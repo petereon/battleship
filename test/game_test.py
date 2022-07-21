@@ -1,7 +1,13 @@
 from unittest import mock
 
 from battleship.logic import Game, Grid
-from battleship.logic.constants import Peg, column_mapping, row_mapping
+from battleship.logic.constants import (
+    Peg,
+    VesselIdentifier,
+    VesselLength,
+    column_mapping,
+    row_mapping,
+)
 
 
 def test_game_initialization():
@@ -52,3 +58,13 @@ def test_place_red_peg_opponents_ocean_grid():
     game.check_shot_status = mock.MagicMock(return_value=True)
     game.place_peg(("C", "5"))
     assert game.opponent.ocean_grid.matrix[column_mapping["C"]][row_mapping["5"]] == Peg.RED
+
+
+def describe_check_sunk_vessel_status():
+    def test_carrier_is_sunk():
+        game = Game()
+        length = VesselLength["CARRIER"]
+        for i in range(length):
+            game.current_player.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
+            game.opponent.ocean_grid.matrix[column_mapping["A"]][i] = VesselIdentifier["CARRIER"]
+        assert game.check_sunk_vessel_status() is True
