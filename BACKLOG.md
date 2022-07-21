@@ -266,15 +266,15 @@ And my target grid
 When the game places the peg on my target grid  
 Then the color of the peg is white  
 
-#### Storytelling 8 ⚠
+#### Storytelling 8 🚧
 After a red peg was placed.  The game announces that the player has sunk a ship and indicate it.
 
-### User Story 8.1 ⚠
+### User Story 8.1 🚧
 __As a__ a game player  
 __I want__ the game to announce that the I have sunk the ship 
 __So that__ I know that the ship has been sunk  
 
-#### UAT 8.1.1 ⚠
+#### UAT 8.1.1 🚧
 Given I have sunk a ship
 When the game checks the sunk ship status
 Then the game announces that the ship has been sunk

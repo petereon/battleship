@@ -345,3 +345,11 @@ Navigator: G
 - ✅ commit
 - ✅ Implement the BDD tests for UAT 7.1
 - ✅ commit
+
+## 39th Pomodoro 
+
+Driver: G
+Navigator: Petko
+
+- 🚧 Implement BDD test for UAT 8.1.1
+- ⚠ commit
