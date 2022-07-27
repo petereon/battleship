@@ -24,5 +24,5 @@ class Game:
         else:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
 
-    def check_sunk_vessel_status(self):
+    def check_sunk_vessel_status(self, shot_hole: tuple):
         return True

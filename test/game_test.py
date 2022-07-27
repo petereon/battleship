@@ -67,4 +67,12 @@ def describe_check_sunk_vessel_status():
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping["A"]][i] = VesselIdentifier["CARRIER"]
-        assert game.check_sunk_vessel_status() is True
+        assert game.check_sunk_vessel_status(("A", "2")) is True
+
+    def test_battleship_is_not_sunk():
+        game = Game()
+        length = VesselLength["BATTLESHIP"]
+        game.current_player.target_grid.matrix[column_mapping["D"]][row_mapping["3"]] = Peg.RED
+        for i in range(length):
+            game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
+        assert game.check_sunk_vessel_status(("D", "3")) is False
