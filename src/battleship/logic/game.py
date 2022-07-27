@@ -32,11 +32,12 @@ class Game:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
 
     def check_sunk_vessel_status(self, shot_hole: tuple) -> bool:
-        vessel_identifier = VesselIdentifier["CARRIER"]
-        carrier_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
+        vessel_identifier = self.opponent.ocean_grid.matrix[column_mapping[shot_hole[0]]][row_mapping[shot_hole[1]]]
+
+        vessel_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
         hit_holes = np.argwhere(self.current_player.target_grid.matrix == Peg.RED)
 
-        if len(carrier_holes) == 0:
-            return False
-
-        return all([carrier_hole in hit_holes for carrier_hole in carrier_holes])
+        for vessel_hole in vessel_holes:
+            if not (hit_holes == vessel_hole).all(axis=1).any():
+                return False
+        return True
