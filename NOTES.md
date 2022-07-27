@@ -351,5 +351,13 @@ Navigator: G
 Driver: G
 Navigator: Petko
 
-- 🚧 Implement BDD test for UAT 8.1.1
+- ✅ Implement BDD test for UAT 8.1.1
+- ✅ commit
+
+## 40th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Implement unit tests for UAT 8.1.1
 - ⚠ commit

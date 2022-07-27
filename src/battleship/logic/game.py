@@ -23,3 +23,6 @@ class Game:
             self.current_player.target_grid.matrix[column][row] = Peg.RED
         else:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
+
+    def check_sunk_vessel_status(self):
+        return True
