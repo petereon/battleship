@@ -7,6 +7,7 @@ from battleship.logic.constants import (
     VesselIdentifier,
     VesselLength,
     column_mapping,
+    row_mapping,
 )
 
 scenarios("../features/sunk_vessel.feature")
@@ -16,19 +17,31 @@ scenarios("../features/sunk_vessel.feature")
 def game():
     return Game()
 
+    # Given I have sunk a vessel <vessel_type> starting at <start_hole>
+    # And I have shot at <shot_hole>
+    # When the game checks the sunk vessel status
+    # Then I know that the vessel <vessel_type> has been sunk
 
-@given(parsers.parse("I have sunk a vessel {vessel_type}"), target_fixture="current_game")
-def given_i_have_sunk_a_vessel(vessel_type, game):
+
+@given(parsers.parse("I have sunk a vessel {vessel_type} starting at {start_hole}"), target_fixture="current_game")
+def given_i_have_sunk_a_vessel(vessel_type, game, start_hole):
+    column, row = start_hole
     length = VesselLength[vessel_type.upper()]
     for i in range(length):
-        game.opponent.ocean_grid.matrix[column_mapping["A"]][i] = VesselIdentifier[vessel_type.upper()]
-        game.current_player.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
+        game.opponent.ocean_grid.matrix[column_mapping[column]][row_mapping[row] + i] = VesselIdentifier[vessel_type.upper()]
+        game.current_player.target_grid.matrix[column_mapping[column]][row_mapping[row] + i] = Peg.RED
     return game
 
 
+@given(parsers.parse("I have shot at {shot_hole}"), target_fixture="shot_hole")
+def given_I_have_shot_at_shot_hole(shot_hole):
+    return shot_hole
+
+
 @when("the game checks the sunk vessel status", target_fixture="sunk_vessel_status")
-def when_the_game_checks_the_sunk_vessel_status():
-    return game.check_sunk_vessel_status()
+def when_the_game_checks_the_sunk_vessel_status(current_game, shot_hole):
+    column, row = shot_hole
+    return current_game.check_sunk_vessel_status((column, row))
 
 
 @then(parsers.parse("I know that the vessel {vessel_type} has been sunk"))
