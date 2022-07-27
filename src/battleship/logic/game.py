@@ -1,4 +1,11 @@
-from battleship.logic.constants import Peg, column_mapping, row_mapping
+import numpy as np
+
+from battleship.logic.constants import (
+    Peg,
+    VesselIdentifier,
+    column_mapping,
+    row_mapping,
+)
 from battleship.logic.player import Player
 
 
@@ -24,5 +31,12 @@ class Game:
         else:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
 
-    def check_sunk_vessel_status(self, shot_hole: tuple):
-        return True
+    def check_sunk_vessel_status(self, shot_hole: tuple) -> bool:
+        vessel_identifier = VesselIdentifier["CARRIER"]
+        carrier_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
+        hit_holes = np.argwhere(self.current_player.target_grid.matrix == Peg.RED)
+
+        if len(carrier_holes) == 0:
+            return False
+
+        return all([carrier_hole in hit_holes for carrier_hole in carrier_holes])
