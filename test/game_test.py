@@ -88,7 +88,16 @@ def describe_check_sunk_vessel_status():
         assert game.check_sunk_vessel_status(("D", "3")) is True
 
 
-def describe_check_sunk_vessel_indicator():
+def describe_sunk_vessel_indicator():
     def test_game_starts_with_5_empty_indicators():
         game = Game()
-        assert (np.zeros((5)) == game.check_sunk_vessel_indicator()).all()
+        assert (game.check_sunk_vessel_indicator() == np.zeros((5))).all()
+
+    def test_game_updates_sunk_vessel_indicator_when_the_ship_is_sunk():
+        game = Game()
+        length = VesselLength["BATTLESHIP"]
+        for i in range(length):
+            game.current_player.target_grid.matrix[column_mapping["D"]][i + 2] = Peg.RED
+            game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
+        game.update_sunk_vessel_indicator(("D", "3"))
+        assert game.sunk_vessel_indicator == np.ndarray([Peg.RED, 0, 0, 0, 0])

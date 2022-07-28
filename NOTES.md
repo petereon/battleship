@@ -401,7 +401,7 @@ Navigator: G
 
 - ✅ Implement unit tests for UAT 8.2.2
 - ✅ commit
-- ⚠ Implement unit tests for UAT 8.2.2
+- 🚧 Implement unit tests for UAT 8.2.2
 - ⚠ commit
 - ⚠ Implement the functionality for UAT 8.2.2
 - ⚠ commit
