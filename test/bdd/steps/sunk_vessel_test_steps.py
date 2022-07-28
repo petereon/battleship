@@ -57,4 +57,4 @@ def when_the_game_checks_sunk_vessel_indicator(game):
 
 @then("it contains 5 empty holes")
 def then_it_contains_5_empty_holes(sunk_vessel_indicator):
-    assert sunk_vessel_indicator.matrix == np.zeros((5, 1))
+    assert (sunk_vessel_indicator == np.zeros((5))).all()

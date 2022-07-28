@@ -91,4 +91,4 @@ def describe_check_sunk_vessel_status():
 def describe_check_sunk_vessel_indicator():
     def test_game_starts_with_5_empty_indicators():
         game = Game()
-        assert game.check_sunk_vessel_indicator() == np.zeros((5, 1))
+        assert (np.zeros((5)) == game.check_sunk_vessel_indicator()).all()

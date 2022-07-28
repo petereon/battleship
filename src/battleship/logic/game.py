@@ -41,3 +41,6 @@ class Game:
             if not (hit_holes == vessel_hole).all(axis=1).any():
                 return False
         return True
+
+    def check_sunk_vessel_indicator(self):
+        return np.zeros((5))
