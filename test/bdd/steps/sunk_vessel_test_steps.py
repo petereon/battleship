@@ -1,3 +1,4 @@
+import numpy as np
 import pytest
 from pytest_bdd import given, parsers, scenarios, then, when
 
@@ -16,11 +17,6 @@ scenarios("../features/sunk_vessel.feature")
 @pytest.fixture
 def game():
     return Game()
-
-    # Given I have sunk a vessel <vessel_type> starting at <start_hole>
-    # And I have shot at <shot_hole>
-    # When the game checks the sunk vessel status
-    # Then I know that the vessel <vessel_type> has been sunk
 
 
 @given(parsers.parse("I have sunk a vessel {vessel_type} starting at {start_hole}"), target_fixture="current_game")
@@ -47,3 +43,18 @@ def when_the_game_checks_the_sunk_vessel_status(current_game, shot_hole):
 @then(parsers.parse("I know that the vessel {vessel_type} has been sunk"))
 def then_i_know_that_the_vessel_has_been_sunk(sunk_vessel_status):
     assert sunk_vessel_status is True
+
+
+@given("I have an empty target grid", target_fixture="target_grid")
+def given_an_empty_target_grid(game):
+    return game.current_player.target_grid
+
+
+@when("game checks sunk vessel indicator", target_fixture="sunk_vessel_indicator")
+def when_the_game_checks_sunk_vessel_indicator(game):
+    return game.check_sunk_vessel_indicator()
+
+
+@then("it contains 5 empty holes")
+def then_it_contains_5_empty_holes(sunk_vessel_indicator):
+    assert sunk_vessel_indicator.matrix == np.zeros((5, 1))

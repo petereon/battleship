@@ -269,22 +269,22 @@ Then the color of the peg is white
 #### Storytelling 8 🚧
 After a red peg was placed.  The game announces that the player has sunk a ship and indicate it.
 
-### User Story 8.1 🚧
+### User Story 8.1 ✅
 __As a__ a game player  
 __I want__ the game to announce that the I have sunk the ship 
 __So that__ I know that the ship has been sunk  
 
-#### UAT 8.1.1 🚧
+#### UAT 8.1.1 ✅
 Given I have sunk a ship
 When the game checks the sunk ship status
 Then the game announces that the ship has been sunk
 
-### User Story 8.2 ⚠
+### User Story 8.2 🚧
 __As a__ a game player  
 __I want__ the game to indicate that the I have sunk a ship 
 __So that__ I know how many ships I have sunk
 
-#### UAT 8.2.1 ⚠
+#### UAT 8.2.1 🚧
 Given I have an empty target grid  
 And an empty sunk ship indicator  
 When the game starts  

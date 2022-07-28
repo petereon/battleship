@@ -12,3 +12,9 @@ Feature: Sunk vessel
             | battleship  | J2         | J5        |
             | cruiser     | D5         | D6        |
             | submarine   | F6         | F7        |
+
+
+    Scenario: Game starts out with an empty sunk vessel indicator
+        Given I have an empty target grid
+        When game checks sunk vessel indicator
+        Then it contains 5 empty holes
