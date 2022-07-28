@@ -1,5 +1,7 @@
 from unittest import mock
 
+import numpy as np
+
 from battleship.logic import Game, Grid
 from battleship.logic.constants import (
     Peg,
@@ -84,3 +86,9 @@ def describe_check_sunk_vessel_status():
             game.current_player.target_grid.matrix[column_mapping["D"]][i + 2] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
         assert game.check_sunk_vessel_status(("D", "3")) is True
+
+
+def describe_check_sunk_vessel_indicator():
+    def test_game_starts_with_5_empty_indicators():
+        game = Game()
+        assert game.check_sunk_vessel_indicator() == np.zeros((5, 1))

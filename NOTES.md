@@ -387,3 +387,5 @@ Navigator: Petko
 
 - ✅ Implement BDD tests for UAT 8.2.1
 - ✅ commit
+- ✅ Implement unit tests for UAT 8.2.1
+- ✅ commit
