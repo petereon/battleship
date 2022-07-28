@@ -58,3 +58,15 @@ def when_the_game_checks_sunk_vessel_indicator(game):
 @then("it contains 5 empty holes")
 def then_it_contains_5_empty_holes(sunk_vessel_indicator):
     assert (sunk_vessel_indicator == np.zeros((5))).all()
+
+
+@when("the game updates sunk vessel indicator", target_fixture="sunk_vessel_indicator")
+def when_the_game_updates_sunk_vessel_indicator(current_game, shot_hole):
+    column, row = shot_hole
+    current_game.update_sunk_vessel_indicator((column, row))
+    return current_game.check_sunk_vessel_indicator()
+
+
+@then("the red peg has been added to the sunk vessel indicator")
+def then_the_game_adds_a_red_peg_to_sunk_vessel_indicator(sunk_vessel_indicator):
+    assert (sunk_vessel_indicator == np.ndarray([Peg.RED, 0, 0, 0, 0])).all()

@@ -284,13 +284,13 @@ __As a__ a game player
 __I want__ the game to indicate that the I have sunk a ship 
 __So that__ I know how many ships I have sunk
 
-#### UAT 8.2.1 🚧
+#### UAT 8.2.1 ✅
 Given I have an empty target grid  
 And an empty sunk ship indicator  
 When the game starts  
 Then it contains 5 empty holes  
 
-#### UAT 8.2.2 ⚠
+#### UAT 8.2.2 🚧
 Given I have sunk a ship
 When the game checks the sunk ship status
 Then the game adds a red peg to the sunk ship indicator

@@ -18,3 +18,17 @@ Feature: Sunk vessel
         Given I have an empty target grid
         When game checks sunk vessel indicator
         Then it contains 5 empty holes
+
+
+    Scenario Outline: Game adds a reg peg to the sunk vessel indicator when a vessel hip is sunk
+        Given I have sunk a vessel <vessel_type> starting at <start_hole>
+        And I have shot at <shot_hole>
+        When the game updates sunk vessel indicator
+        Then the game adds a red peg to the sunk vessel indicator
+
+        Examples:
+            | vessel_type | start_hole | shot_hole |
+            | carrier     | A4         | A6        |
+            | battleship  | J2         | J5        |
+            | cruiser     | D5         | D6        |
+            | submarine   | F6         | F7        |
