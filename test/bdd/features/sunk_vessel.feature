@@ -20,12 +20,11 @@ Feature: Sunk vessel
         Then it contains 5 empty holes
 
 
-    Scenario Outline: Game adds a reg peg to the sunk vessel indicator when a vessel hip is sunk
+    Scenario Outline: Game adds a reg peg to the sunk vessel indicator when a vessel is sunk
         Given I have sunk a vessel <vessel_type> starting at <start_hole>
         And I have shot at <shot_hole>
         When the game updates sunk vessel indicator
-        Then the game adds a red peg to the sunk vessel indicator
-
+        Then the red peg has been added to the sunk vessel indicator
         Examples:
             | vessel_type | start_hole | shot_hole |
             | carrier     | A4         | A6        |

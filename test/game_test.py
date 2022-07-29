@@ -103,4 +103,4 @@ def describe_sunk_vessel_indicator():
     def test_game_updates_sunk_vessel_indicator_when_the_ship_is_sunk(get_game_with_D3_battleship):
         game = get_game_with_D3_battleship
         game.update_sunk_vessel_indicator(("D", "3"))
-        assert game.sunk_vessel_indicator == np.ndarray([Peg.RED, 0, 0, 0, 0])
+        assert (game.sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all()

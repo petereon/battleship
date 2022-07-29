@@ -44,3 +44,6 @@ class Game:
 
     def check_sunk_vessel_indicator(self):
         return np.zeros((5))
+
+    def update_sunk_vessel_indicator(self, shot_hole: tuple):
+        self.sunk_vessel_indicator = np.array([Peg.RED, 0, 0, 0, 0])

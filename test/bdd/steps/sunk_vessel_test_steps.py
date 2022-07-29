@@ -69,4 +69,5 @@ def when_the_game_updates_sunk_vessel_indicator(current_game, shot_hole):
 
 @then("the red peg has been added to the sunk vessel indicator")
 def then_the_game_adds_a_red_peg_to_sunk_vessel_indicator(sunk_vessel_indicator):
-    assert (sunk_vessel_indicator == np.ndarray([Peg.RED, 0, 0, 0, 0])).all()
+    print(sunk_vessel_indicator, np.array([Peg.RED, 0, 0, 0, 0]))
+    assert (sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all()
