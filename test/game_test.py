@@ -95,12 +95,29 @@ def get_game_with_D3_battleship():
     return game
 
 
+@pytest.fixture
+def get_game_with_D3_battleship_and_A1_cruiser():
+    game = Game()
+    vessels = [("A1", "CARRIER"), ("D3", "BATTLESHIP")]
+    for (column, row), vessel in vessels:
+        length = VesselLength[vessel]
+        for i in range(length):
+            game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
+            game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
+    return game
+
+
 def describe_sunk_vessel_indicator():
     def test_game_starts_with_5_empty_indicators():
         game = Game()
         assert (game.check_sunk_vessel_indicator() == np.zeros((5))).all()
 
-    def test_game_updates_sunk_vessel_indicator_when_the_ship_is_sunk(get_game_with_D3_battleship):
+    def test_game_updates_sunk_vessel_indicator_when_the_vessel_is_sunk(get_game_with_D3_battleship):
         game = get_game_with_D3_battleship
         game.update_sunk_vessel_indicator(("D", "3"))
         assert (game.sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all()
+
+    def test_game_updates_sunk_vessel_indicator_when_the_second_vessel_is_sunk(get_game_with_D3_battleship_and_A1_cruiser):
+        game = get_game_with_D3_battleship_and_A1_cruiser
+        game.update_sunk_vessel_indicator(("D", "3"))
+        assert (game.sunk_vessel_indicator == np.array([Peg.RED, Peg.RED, 0, 0, 0])).all()
