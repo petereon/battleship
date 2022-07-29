@@ -1,6 +1,7 @@
 from unittest import mock
 
 import numpy as np
+import pytest
 
 from battleship.logic import Game, Grid
 from battleship.logic.constants import (
@@ -79,13 +80,19 @@ def describe_check_sunk_vessel_status():
             game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
         assert game.check_sunk_vessel_status(("D", "3")) is False
 
-    def test_battleship_is_sunk():
-        game = Game()
-        length = VesselLength["BATTLESHIP"]
-        for i in range(length):
-            game.current_player.target_grid.matrix[column_mapping["D"]][i + 2] = Peg.RED
-            game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
+    def test_battleship_is_sunk(get_game_with_D3_battleship):
+        game = get_game_with_D3_battleship
         assert game.check_sunk_vessel_status(("D", "3")) is True
+
+
+@pytest.fixture
+def get_game_with_D3_battleship():
+    game = Game()
+    length = VesselLength["BATTLESHIP"]
+    for i in range(length):
+        game.current_player.target_grid.matrix[column_mapping["D"]][i + 2] = Peg.RED
+        game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
+    return game
 
 
 def describe_sunk_vessel_indicator():
@@ -93,11 +100,7 @@ def describe_sunk_vessel_indicator():
         game = Game()
         assert (game.check_sunk_vessel_indicator() == np.zeros((5))).all()
 
-    def test_game_updates_sunk_vessel_indicator_when_the_ship_is_sunk():
-        game = Game()
-        length = VesselLength["BATTLESHIP"]
-        for i in range(length):
-            game.current_player.target_grid.matrix[column_mapping["D"]][i + 2] = Peg.RED
-            game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
+    def test_game_updates_sunk_vessel_indicator_when_the_ship_is_sunk(get_game_with_D3_battleship):
+        game = get_game_with_D3_battleship
         game.update_sunk_vessel_indicator(("D", "3"))
         assert game.sunk_vessel_indicator == np.ndarray([Peg.RED, 0, 0, 0, 0])

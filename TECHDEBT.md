@@ -7,4 +7,4 @@
 1. ⚠ Integrate Snyk into the pipeline
 1. ⚠ Include mutation testing
 1. ⚠ Review the results of mutation testing
-1. Move the sunk ship indicator setup to a fixture
+1. ⚠ Move the sunk ship indicator setup to a fixture
