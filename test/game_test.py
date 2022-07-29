@@ -104,6 +104,7 @@ def get_game_with_D3_battleship_and_A1_cruiser():
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
+    game.sunk_vessel_indicator = np.array([Peg.RED, 0, 0, 0, 0])
     return game
 
 

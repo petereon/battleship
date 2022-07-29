@@ -415,3 +415,11 @@ Navigator: Petko
 - ⚠ commit
 - ⚠ Implement the functionality for UAT 8.2.2
 - ⚠ commit
+
+## 46th Pomodoro
+
+Driver: Petko
+Navigator: G
+
+- 🚧 Implement unit tests for UAT 8.2.2
+- ⚠ commit
