@@ -134,7 +134,7 @@ def describe_sunk_vessel_indicator():
     )
     def test_game_starts_with_5_empty_indicators(sunk_vessel_indicator_state):
         game = Game()
-        game.sunk_vessel_indicator.matrix = np.array(sunk_vessel_indicator_state)
+        game.sunk_vessel_indicator = np.array(sunk_vessel_indicator_state)
         assert (game.check_sunk_vessel_indicator() == np.array(sunk_vessel_indicator_state)).all()
 
     @pytest.mark.parametrize("num_vessels", [1, 2, 3, 4, 5])

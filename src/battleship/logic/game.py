@@ -44,7 +44,7 @@ class Game:
         return True
 
     def check_sunk_vessel_indicator(self):
-        return np.zeros((5))
+        return self.sunk_vessel_indicator
 
     def update_sunk_vessel_indicator(self, shot_hole: tuple):
         if self.check_sunk_vessel_status(shot_hole):
