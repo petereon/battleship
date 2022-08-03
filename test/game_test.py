@@ -116,29 +116,13 @@ def set_up_game_with_vessels(num_of_vessels):
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
-    game.sunk_vessel_indicator = np.array(((num_of_vessels - 1) * [Peg.RED]) + ((6 - num_of_vessels) * [0]))
+    game.current_player.sunk_vessel_indicator = np.array(((num_of_vessels - 1) * [Peg.RED]) + ((6 - num_of_vessels) * [0]))
     return game
 
 
 def describe_sunk_vessel_indicator():
-    @pytest.mark.parametrize(
-        "sunk_vessel_indicator_state",
-        [
-            [0, 0, 0, 0, 0],
-            [Peg.RED, 0, 0, 0, 0],
-            [Peg.RED, Peg.RED, 0, 0, 0],
-            [Peg.RED, Peg.RED, Peg.RED, 0, 0],
-            [Peg.RED, Peg.RED, Peg.RED, Peg.RED, 0],
-            [Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED],
-        ],
-    )
-    def test_game_starts_with_5_empty_indicators(sunk_vessel_indicator_state):
-        game = Game()
-        game.sunk_vessel_indicator = np.array(sunk_vessel_indicator_state)
-        assert (game.check_sunk_vessel_indicator() == np.array(sunk_vessel_indicator_state)).all()
-
     @pytest.mark.parametrize("num_vessels", [1, 2, 3, 4, 5])
     def test_game_updates_sunk_vessel_indicator_when_the_vessel_is_sunk(num_vessels):
         game = set_up_game_with_vessels(num_vessels)
         game.update_sunk_vessel_indicator(("D", "3"))
-        assert (game.sunk_vessel_indicator == np.array((num_vessels * [Peg.RED]) + ((5 - num_vessels) * [0]))).all()
+        assert (game.current_player.sunk_vessel_indicator == np.array((num_vessels * [Peg.RED]) + ((5 - num_vessels) * [0]))).all()

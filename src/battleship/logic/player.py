@@ -1,3 +1,5 @@
+import numpy as np
+
 from battleship.logic.constants import (
     Vessel,
     VesselIdentifier,
@@ -20,6 +22,7 @@ class Player:
     def __init__(self):
         self.ocean_grid = Grid()
         self.target_grid = Grid()
+        self.sunk_vessel_indicator = np.zeros((5))
 
     def get_ship_coordinates(self, coordinates: tuple) -> tuple:
         start_column_idx = column_mapping[coordinates[0][0]]
@@ -57,3 +60,6 @@ class Player:
 
     def take_shot(self, hole: tuple) -> None:
         self.current_shot = (column_mapping[hole[0]], row_mapping[hole[1]])
+
+    def check_sunk_vessel_indicator(self):
+        return self.sunk_vessel_indicator

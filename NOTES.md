@@ -437,5 +437,6 @@ Navigator: Petko
 Driver: Petko  
 Navigator: G  
 
-- 🚧 Implement unit tests for UAT 8.2.2
-- ⚠ commit
+- ✅ Implement unit tests for UAT 8.2.2
+- ✅ commit
+- 🚧 move the sunk vessel to the player

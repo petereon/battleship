@@ -52,7 +52,7 @@ def given_an_empty_target_grid(game):
 
 @when("game checks sunk vessel indicator", target_fixture="sunk_vessel_indicator")
 def when_the_game_checks_sunk_vessel_indicator(game):
-    return game.check_sunk_vessel_indicator()
+    return game.current_player.check_sunk_vessel_indicator()
 
 
 @then("it contains 5 empty holes")
@@ -64,7 +64,7 @@ def then_it_contains_5_empty_holes(sunk_vessel_indicator):
 def when_the_game_updates_sunk_vessel_indicator(current_game, shot_hole):
     column, row = shot_hole
     current_game.update_sunk_vessel_indicator((column, row))
-    return current_game.check_sunk_vessel_indicator()
+    return current_game.current_player.check_sunk_vessel_indicator()
 
 
 @then("the red peg has been added to the sunk vessel indicator")

@@ -1,5 +1,6 @@
 from unittest import mock
 
+import numpy as np
 import pytest
 
 from battleship.logic import Grid, Player
@@ -36,3 +37,20 @@ def describe_taking_a_shot():
         player.take_shot(coord)
 
         assert player.current_shot == (column_mapping[coord[0]], row_mapping[coord[1]])
+
+
+@pytest.mark.parametrize(
+    "sunk_vessel_indicator_state",
+    [
+        [0, 0, 0, 0, 0],
+        [Peg.RED, 0, 0, 0, 0],
+        [Peg.RED, Peg.RED, 0, 0, 0],
+        [Peg.RED, Peg.RED, Peg.RED, 0, 0],
+        [Peg.RED, Peg.RED, Peg.RED, Peg.RED, 0],
+        [Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED],
+    ],
+)
+def test_game_starts_with_5_empty_indicators(sunk_vessel_indicator_state):
+    player = Player()
+    player.sunk_vessel_indicator = np.array(sunk_vessel_indicator_state)
+    assert (player.check_sunk_vessel_indicator() == np.array(sunk_vessel_indicator_state)).all()

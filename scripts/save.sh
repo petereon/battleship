@@ -90,7 +90,7 @@ case "$ACTION" in
 
       "ref")
 	      checkNotEmpty "$CUSTOM_MESSAGE"
-        MSG=$(uatMessage refactor "$US" "$UAT" "👩‍💻 $CUSTOM_MESSAGE")
+        MSG=$(uatMessage refactor "$US" "$UAT" "💻 $CUSTOM_MESSAGE")
         ;;
 
       "c" | "covered")

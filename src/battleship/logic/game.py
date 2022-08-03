@@ -43,12 +43,9 @@ class Game:
                 return False
         return True
 
-    def check_sunk_vessel_indicator(self):
-        return self.sunk_vessel_indicator
-
     def update_sunk_vessel_indicator(self, shot_hole: tuple):
         if self.check_sunk_vessel_status(shot_hole):
-            list_of_pegs = self.sunk_vessel_indicator.tolist()
+            list_of_pegs = self.current_player.sunk_vessel_indicator.tolist()
             list_of_pegs.pop()
             list_of_pegs = [Peg.RED] + list_of_pegs
-            self.sunk_vessel_indicator = np.array(list_of_pegs)
+            self.current_player.sunk_vessel_indicator = np.array(list_of_pegs)
