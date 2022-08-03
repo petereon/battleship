@@ -18,7 +18,7 @@ class Game:
         self.player2 = Player()
         self.current_player = self.player1
         self.opponent = self.player2
-        self.sunk_vessel_indicator = np.ndarray((5))
+        self.sunk_vessel_indicator = np.zeros((5))
 
     def check_shot_status(self, shot_hole: tuple) -> bool:
         column, row = (column_mapping[shot_hole[0]], row_mapping[shot_hole[1]])
@@ -47,8 +47,8 @@ class Game:
         return np.zeros((5))
 
     def update_sunk_vessel_indicator(self, shot_hole: tuple):
-        print(self.sunk_vessel_indicator, np.array([Peg.RED, 0, 0, 0, 0]))
-        if (self.sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all():
-            self.sunk_vessel_indicator = np.array([Peg.RED, Peg.RED, 0, 0, 0])
-        else:
-            self.sunk_vessel_indicator = np.array([Peg.RED, 0, 0, 0, 0])
+        if self.check_sunk_vessel_status(shot_hole):
+            list_of_pegs = self.sunk_vessel_indicator.tolist()
+            list_of_pegs.pop()
+            list_of_pegs = [Peg.RED] + list_of_pegs
+            self.sunk_vessel_indicator = np.array(list_of_pegs)

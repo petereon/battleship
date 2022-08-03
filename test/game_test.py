@@ -110,8 +110,8 @@ def get_game_with_D3_battleship_and_A1_cruiser():
 
 def set_up_game_with_vessels(num_of_vessels):
     game = Game()
-    vessels = [("A1", "CARRIER"), ("D3", "BATTLESHIP"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
-    for (column, row), vessel in vessels[: num_of_vessels - 1]:
+    vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
+    for (column, row), vessel in vessels[:num_of_vessels]:
         length = VesselLength[vessel]
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
