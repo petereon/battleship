@@ -121,9 +121,21 @@ def set_up_game_with_vessels(num_of_vessels):
 
 
 def describe_sunk_vessel_indicator():
-    def test_game_starts_with_5_empty_indicators():
+    @pytest.mark.parametrize(
+        "sunk_vessel_indicator_state",
+        [
+            [0, 0, 0, 0, 0],
+            [Peg.RED, 0, 0, 0, 0],
+            [Peg.RED, Peg.RED, 0, 0, 0],
+            [Peg.RED, Peg.RED, Peg.RED, 0, 0],
+            [Peg.RED, Peg.RED, Peg.RED, Peg.RED, 0],
+            [Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED],
+        ],
+    )
+    def test_game_starts_with_5_empty_indicators(sunk_vessel_indicator_state):
         game = Game()
-        assert (game.check_sunk_vessel_indicator() == np.zeros((5))).all()
+        game.sunk_vessel_indicator.matrix = np.array(sunk_vessel_indicator_state)
+        assert (game.check_sunk_vessel_indicator() == np.array(sunk_vessel_indicator_state)).all()
 
     @pytest.mark.parametrize("num_vessels", [1, 2, 3, 4, 5])
     def test_game_updates_sunk_vessel_indicator_when_the_vessel_is_sunk(num_vessels):
