@@ -63,8 +63,10 @@ Feature: Shots taken during the game
             | C9   |
 
     Scenario: After each move has been made.  The game passes the initiative to the opponent.
-        Given my target grid
+        Given current player's target grid
+        And the current player is player 1
         And opponent's target grid
-        When I take the shot
+        When current player takes the shot
         Then the game does not end
-        And the opponent can take the shot
+        And the current player is player 2
+        And player 2 can take the shot

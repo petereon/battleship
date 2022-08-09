@@ -98,21 +98,36 @@ def when_the_game_places_the_peg_on_opponents_ocean_grid(hole, game):
     game.place_peg(hole)
 
 
+@given("current player's target grid")
+def given_current_player_target_grid(game):
+    return game.current_player.target_grid
+
+
+@given("current player is player 1")
+def given_current_player_is_player_1(game):
+    return game.current_player == game.player1
+
+
 @given("opponent's target grid")
-def given_opponent_s_target_grid():
-    pass
+def given_opponent_s_target_grid(game):
+    return game.opponent.target_grid
 
 
-@when("I take the shot")
-def when_i_take_the_shot():
-    pass
+@when("current player takes the shot")
+def when_i_take_the_shot(game):
+    game.current_player.take_shot(("A", "1"))
 
 
 @then("the game does not end")
 def then_the_game_does_not_end():
-    pass
+    assert game.status is None
 
 
-@then("the opponent can take the shot")
-def then_the_opponent_can_take_the_shot():
+@then("the current player is player 2")
+def then_the_current_player_is_player_2():
+    assert game.current_player == game.player2
+
+
+@then("player 2 can take the shot")
+def then_player_2_can_take_the_shot():
     pass
