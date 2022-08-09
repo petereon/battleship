@@ -61,3 +61,10 @@ Feature: Shots taken during the game
             | hole |
             | B5   |
             | C9   |
+
+    Scenario: After each move has been made.  The game passes the initiative to the opponent.
+        Given my target grid
+        And opponent's target grid
+        When I take the shot
+        Then the game does not end
+        And the opponent can take the shot

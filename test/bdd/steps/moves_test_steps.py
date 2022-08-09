@@ -96,3 +96,23 @@ def then_the_color_of_the_ocean_grid_peg_is_red(target_hole, game):
 @when(parsers.parse("the game places the peg on opponent's ocean grid at {hole}"))
 def when_the_game_places_the_peg_on_opponents_ocean_grid(hole, game):
     game.place_peg(hole)
+
+
+@given("opponent's target grid")
+def given_opponent_s_target_grid():
+    pass
+
+
+@when("I take the shot")
+def when_i_take_the_shot():
+    pass
+
+
+@then("the game does not end")
+def then_the_game_does_not_end():
+    pass
+
+
+@then("the opponent can take the shot")
+def then_the_opponent_can_take_the_shot():
+    pass
