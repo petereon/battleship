@@ -6,7 +6,7 @@ from pytest_bdd import given, parsers, scenarios, then, when
 from battleship.logic import Game, Grid, Player
 from battleship.logic.constants import Peg, column_mapping, row_mapping
 
-scenarios("../features/shots.feature")
+scenarios("../features/moves.feature")
 
 
 @pytest.fixture

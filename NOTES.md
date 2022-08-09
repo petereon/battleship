@@ -440,3 +440,11 @@ Navigator: G
 - ✅ Implement unit tests for UAT 8.2.2
 - ✅ commit
 - 🚧 move the sunk vessel to the player
+
+## 49th Pomodoro
+
+Driver: G  
+Navigator: Petko  
+
+- 🚧 Implement BDD tests for UAT 9.1
+- ⚠ commit
