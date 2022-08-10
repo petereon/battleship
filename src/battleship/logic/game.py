@@ -49,3 +49,6 @@ class Game:
             list_of_pegs.pop()
             list_of_pegs = [Peg.RED] + list_of_pegs
             self.current_player.sunk_vessel_indicator = np.array(list_of_pegs)
+
+    def take_turn(self, shot_hole: tuple):
+        self.current_player = self.player2
