@@ -454,7 +454,7 @@ Navigator: Petko
 Driver: Petko  
 Navigator: G  
 
-- 🚧 Implement BDD tests for UAT 9.1
-- ⚠ commit
-- ⚠ Implement unit tests for UAT 9.1
+- ✅ Implement BDD tests for UAT 9.1
+- ✅ commit
+- 🚧 Implement unit tests for UAT 9.1
 - ⚠ commit

@@ -126,3 +126,12 @@ def describe_sunk_vessel_indicator():
         game = set_up_game_with_vessels(num_vessels)
         game.update_sunk_vessel_indicator(("D", "3"))
         assert (game.current_player.sunk_vessel_indicator == np.array((num_vessels * [Peg.RED]) + ((5 - num_vessels) * [0]))).all()
+
+
+def describe_players_switch_if_game_does_not_end():
+    def test_player1_becomes_the_opponent(get_game_with_D3_battleship_and_A1_cruiser):
+        game = get_game_with_D3_battleship_and_A1_cruiser
+        game.current_player = game.player1
+        game.current_player.take_shot(("A", "1"))
+
+        assert game.current_player == game.player2
