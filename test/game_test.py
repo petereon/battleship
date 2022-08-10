@@ -129,9 +129,17 @@ def describe_sunk_vessel_indicator():
 
 
 def describe_players_switch_if_game_does_not_end():
+    @pytest.skip("not implemented")
     def test_player1_becomes_the_opponent(get_game_with_D3_battleship_and_A1_cruiser):
         game = get_game_with_D3_battleship_and_A1_cruiser
-        game.current_player = game.player1
         game.current_player.take_shot(("A", "1"))
+
+        assert game.current_player == game.player2
+
+
+def describe_game_take_turn():
+    def test_take_turn_game_does_not_end_switches_to_player_2(get_game_with_D3_battleship_and_A1_cruiser):
+        game = get_game_with_D3_battleship_and_A1_cruiser
+        game.take_turn(("A", "1"))
 
         assert game.current_player == game.player2
