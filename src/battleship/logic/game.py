@@ -52,3 +52,4 @@ class Game:
 
     def take_turn(self, shot_hole: tuple):
         self.current_player = self.opponent
+        self.opponent = self.player1
