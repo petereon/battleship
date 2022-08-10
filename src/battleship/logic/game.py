@@ -51,5 +51,4 @@ class Game:
             self.current_player.sunk_vessel_indicator = np.array(list_of_pegs)
 
     def take_turn(self, shot_hole: tuple):
-        self.current_player = self.opponent
-        self.opponent = self.player1
+        (self.current_player, self.opponent) = (self.opponent, self.current_player)
