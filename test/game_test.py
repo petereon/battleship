@@ -147,6 +147,13 @@ def describe_game_take_turn():
     def test_take_turn_game_does_not_end_current_player_switches_to_player_1(get_game_with_D3_battleship_and_A1_cruiser):
         game = get_game_with_D3_battleship_and_A1_cruiser
         game.current_player = game.player2
+        game.opponent = game.player1
         game.take_turn(("A", "1"))
 
         assert game.current_player == game.player1
+
+    def test_take_turn_game_does_not_end_opponent_player_switches_to_player_1(get_game_with_D3_battleship_and_A1_cruiser):
+        game = get_game_with_D3_battleship_and_A1_cruiser
+        game.take_turn(("A", "1"))
+
+        assert game.opponent == game.player1
