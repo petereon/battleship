@@ -130,4 +130,5 @@ def then_the_current_player_is_player_2():
 
 @then("player 2 can take the shot")
 def then_player_2_can_take_the_shot():
-    pass
+    game.current_player.take_shot(("B", "3"))
+    assert game.player2.current_shot == (column_mapping["B"], row_mapping["3"])
