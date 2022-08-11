@@ -290,20 +290,20 @@ And an empty sunk ship indicator
 When the game starts  
 Then it contains 5 empty holes  
 
-#### UAT 8.2.2 🚧
+#### UAT 8.2.2 ✅
 Given I have sunk a ship
 When the game checks the sunk ship status
 Then the game adds a red peg to the sunk ship indicator
 
-#### Storytelling 9 ⚠
+#### Storytelling 9 🚧
 After each move has been made.  The game passes the initiative to the opponent.
 
-### User Story 9 ⚠
+### User Story 9 🚧
 __As a__ a game player  
 __I want__ the game to pass the initiative to the opponent  
 __So that__ they can make a move  
 
-#### UAT 9.1 ⚠
+#### UAT 9.1 🚧
 Given my target grid <my target grid>  
 And opponent's target grid <opponent target grid>  
 When I take the shot  

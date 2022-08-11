@@ -165,3 +165,12 @@ def describe_game_take_turn():
         game.take_turn(("A", "1"))
 
         assert game.opponent == game.player2
+
+    def test_take_turn_shot_is_made(get_game_with_D3_battleship_and_A1_cruiser):
+        game = get_game_with_D3_battleship_and_A1_cruiser
+        game.player2.take_shot = mock.MagicMock()
+        game.current_player = game.player2
+        game.opponent = game.player1
+        game.take_turn(("A", "1"))
+
+        game.player2.take_shot.assert_called_with(("A", "1"))
