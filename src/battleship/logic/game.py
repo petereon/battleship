@@ -18,6 +18,7 @@ class Game:
         self.player2 = Player()
         self.current_player = self.player1
         self.opponent = self.player2
+        self.status = None
         self.sunk_vessel_indicator = np.zeros((5))
 
     def check_shot_status(self, shot_hole: tuple) -> bool:
