@@ -103,7 +103,7 @@ def given_current_player_target_grid(game):
     return game.current_player.target_grid
 
 
-@given("current player is player 1")
+@given("the current player is player 1")
 def given_current_player_is_player_1(game):
     return game.current_player == game.player1
 
