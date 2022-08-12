@@ -72,16 +72,20 @@ def then_the_game_adds_a_red_peg_to_sunk_vessel_indicator(sunk_vessel_indicator)
     assert (sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all()
 
 
-@given("I have sunk all of the opponent's 5 vessels")
-def given_i_have_sunk_all_of_the_opponents_5_vessels():
-    pass
-
-
-# @when("the game checks the sunk vessel status")
-# def when_the_game_checks_the_sunk_vessel_status():
-#     pass
+@given("I have sunk all of the opponent's 5 vessels", target_fixture="current_game")
+def given_i_have_sunk_all_of_the_opponents_5_vessels(game):
+    num_of_vessels = 5
+    vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
+    for (column, row), vessel in vessels[:num_of_vessels]:
+        length = VesselLength[vessel]
+        for i in range(length):
+            game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
+            game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
+    game.current_player.sunk_vessel_indicator = np.array(num_of_vessels * [Peg.RED])
+    game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
+    return game
 
 
 @then("the game announces that I won")
-def then_the_game_announces_that_I_won():
-    pass
+def then_the_game_announces_that_I_won(current_game):
+    assert current_game.status == "player 1"

@@ -32,7 +32,7 @@ Feature: Sunk vessel
             | cruiser     | D5         | D6        |
             | submarine   | F6         | F7        |
 
-    # Scenario: All vessels are sunk
-    #     Given I have sunk all of the opponent's 5 vessels
-    #     When the game checks the sunk vessel status
-    #     Then the game announces that I won
+    Scenario: All vessels are sunk
+        Given I have sunk all of the opponent's 5 vessels
+        When the game checks the sunk vessel status
+        Then the game announces that I won

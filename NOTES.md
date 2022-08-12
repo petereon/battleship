@@ -482,8 +482,9 @@ Navigator: Petko
 Driver: Petko  
 Navigator: G  
 
-- 🚧 refactor the code sunk vessel check and update
-- ⚠  Implement BDD tests for UAT 10.1
+- ✅ refactor the code sunk vessel check and update
+- ✅ commit
+- 🚧  Implement BDD tests for UAT 10.1
 - ⚠  commit
 - ⚠  Implement unit tests for UAT 10.1
 - ⚠  commit
