@@ -66,7 +66,7 @@ Feature: Shots taken during the game
         Given current player's target grid
         And the current player is player 1
         And opponent's target grid
-        When current player takes the shot
+        When current player takes their turn
         Then the game does not end
         And the current player is player 2
         And player 2 can take the shot

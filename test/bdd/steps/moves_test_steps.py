@@ -113,22 +113,22 @@ def given_opponent_s_target_grid(game):
     return game.opponent.target_grid
 
 
-@when("current player takes the shot")
+@when("current player takes their turn")
 def when_i_take_the_shot(game):
-    game.current_player.take_shot(("A", "1"))
+    game.take_turn(("A", "1"))
 
 
 @then("the game does not end")
-def then_the_game_does_not_end():
+def then_the_game_does_not_end(game):
     assert game.status is None
 
 
 @then("the current player is player 2")
-def then_the_current_player_is_player_2():
+def then_the_current_player_is_player_2(game):
     assert game.current_player == game.player2
 
 
 @then("player 2 can take the shot")
-def then_player_2_can_take_the_shot():
+def then_player_2_can_take_the_shot(game):
     game.current_player.take_shot(("B", "3"))
     assert game.player2.current_shot == (column_mapping["B"], row_mapping["3"])
