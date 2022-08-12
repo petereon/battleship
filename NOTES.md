@@ -472,5 +472,18 @@ Navigator: G
 Driver: G
 Navigator: Petko
 
-- 🚧 Implement unit tests for UAT 9.1
-- ⚠ commit
+- ✅ Implement unit tests for UAT 9.1
+- ✅ commit
+- 🚧  Implement BDD tests for UAT 10.1
+- ⚠  commit
+
+## 53th Pomodoro
+
+Driver: Petko  
+Navigator: G  
+
+- 🚧 refactor the code sunk vessel check and update
+- ⚠  Implement BDD tests for UAT 10.1
+- ⚠  commit
+- ⚠  Implement unit tests for UAT 10.1
+- ⚠  commit

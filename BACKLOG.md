@@ -295,30 +295,30 @@ Given I have sunk a ship
 When the game checks the sunk ship status
 Then the game adds a red peg to the sunk ship indicator
 
-#### Storytelling 9 🚧
+#### Storytelling 9 ✅
 After each move has been made.  The game passes the initiative to the opponent.
 
-### User Story 9 🚧
+### User Story 9 ✅
 __As a__ a game player  
 __I want__ the game to pass the initiative to the opponent  
 __So that__ they can make a move  
 
-#### UAT 9.1 🚧
+#### UAT 9.1 ✅
 Given my target grid <my target grid>  
 And opponent's target grid <opponent target grid>  
 When I take the shot  
 Then the game does not end  
 And the opponent can take the shot  
 
-#### Storytelling 10 ⚠
+#### Storytelling 10 🚧
 After all of the opponent's 5 ships have been sunk. Then the game declares me as a winner.
 
-### User Story 10 ⚠
+### User Story 10 🚧
 __As a__ a game player  
 __I want__ the game to declare me as a winner when I've sunk all of the opponent's 5 ships  
 __So that__ I know that I won  
 
-#### UAT 10.1 ⚠
+#### UAT 10.1 🚧
 Given I have sunk all of the opponent's 5 ships
 When the game checks the sunk ship status
 Then the game announces that I won

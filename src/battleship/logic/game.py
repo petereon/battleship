@@ -33,8 +33,10 @@ class Game:
         else:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
 
-    def check_sunk_vessel_status(self, shot_hole: tuple) -> bool:
-        vessel_identifier = self.opponent.ocean_grid.matrix[column_mapping[shot_hole[0]]][row_mapping[shot_hole[1]]]
+    def check_sunk_vessel_status(self) -> bool:
+        shot = self.current_player.current_shot
+        print(shot)
+        vessel_identifier = self.opponent.ocean_grid.matrix[shot[0]][shot[1]]
 
         vessel_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
         hit_holes = np.argwhere(self.current_player.target_grid.matrix == Peg.RED)
@@ -44,8 +46,8 @@ class Game:
                 return False
         return True
 
-    def update_sunk_vessel_indicator(self, shot_hole: tuple):
-        if self.check_sunk_vessel_status(shot_hole):
+    def update_sunk_vessel_indicator(self):
+        if self.check_sunk_vessel_status():
             list_of_pegs = self.current_player.sunk_vessel_indicator.tolist()
             list_of_pegs.pop()
             list_of_pegs = [Peg.RED] + list_of_pegs

@@ -17,7 +17,7 @@ class PositionError(Exception):
 
 
 class Player:
-    current_shot: tuple | None = None
+    current_shot: tuple
 
     def __init__(self):
         self.ocean_grid = Grid()

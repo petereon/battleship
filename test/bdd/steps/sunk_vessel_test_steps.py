@@ -30,14 +30,14 @@ def given_i_have_sunk_a_vessel(vessel_type, game, start_hole):
 
 
 @given(parsers.parse("I have shot at {shot_hole}"), target_fixture="shot_hole")
-def given_I_have_shot_at_shot_hole(shot_hole):
+def given_I_have_shot_at_shot_hole(shot_hole, current_game):
+    current_game.current_player.current_shot = (column_mapping[shot_hole[0]], row_mapping[shot_hole[1]])
     return shot_hole
 
 
 @when("the game checks the sunk vessel status", target_fixture="sunk_vessel_status")
-def when_the_game_checks_the_sunk_vessel_status(current_game, shot_hole):
-    column, row = shot_hole
-    return current_game.check_sunk_vessel_status((column, row))
+def when_the_game_checks_the_sunk_vessel_status(current_game):
+    return current_game.check_sunk_vessel_status()
 
 
 @then(parsers.parse("I know that the vessel {vessel_type} has been sunk"))
@@ -61,9 +61,8 @@ def then_it_contains_5_empty_holes(sunk_vessel_indicator):
 
 
 @when("the game updates sunk vessel indicator", target_fixture="sunk_vessel_indicator")
-def when_the_game_updates_sunk_vessel_indicator(current_game, shot_hole):
-    column, row = shot_hole
-    current_game.update_sunk_vessel_indicator((column, row))
+def when_the_game_updates_sunk_vessel_indicator(current_game):
+    current_game.update_sunk_vessel_indicator()
     return current_game.current_player.check_sunk_vessel_indicator()
 
 
@@ -71,3 +70,18 @@ def when_the_game_updates_sunk_vessel_indicator(current_game, shot_hole):
 def then_the_game_adds_a_red_peg_to_sunk_vessel_indicator(sunk_vessel_indicator):
     print(sunk_vessel_indicator, np.array([Peg.RED, 0, 0, 0, 0]))
     assert (sunk_vessel_indicator == np.array([Peg.RED, 0, 0, 0, 0])).all()
+
+
+@given("I have sunk all of the opponent's 5 vessels")
+def given_i_have_sunk_all_of_the_opponents_5_vessels():
+    pass
+
+
+# @when("the game checks the sunk vessel status")
+# def when_the_game_checks_the_sunk_vessel_status():
+#     pass
+
+
+@then("the game announces that I won")
+def then_the_game_announces_that_I_won():
+    pass

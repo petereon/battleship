@@ -70,7 +70,8 @@ def describe_check_sunk_vessel_status():
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping["A"]][i] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping["A"]][i] = VesselIdentifier["CARRIER"]
-        assert game.check_sunk_vessel_status(("A", "2")) is True
+        game.current_player.current_shot = (column_mapping["A"], row_mapping["2"])
+        assert game.check_sunk_vessel_status() is True
 
     def test_battleship_is_not_sunk():
         game = Game()
@@ -78,11 +79,13 @@ def describe_check_sunk_vessel_status():
         game.current_player.target_grid.matrix[column_mapping["D"]][row_mapping["3"]] = Peg.RED
         for i in range(length):
             game.opponent.ocean_grid.matrix[column_mapping["D"]][i + 2] = VesselIdentifier["BATTLESHIP"]
-        assert game.check_sunk_vessel_status(("D", "3")) is False
+        game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
+        assert game.check_sunk_vessel_status() is False
 
     def test_battleship_is_sunk(get_game_with_D3_battleship):
         game = get_game_with_D3_battleship
-        assert game.check_sunk_vessel_status(("D", "3")) is True
+        game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
+        assert game.check_sunk_vessel_status() is True
 
 
 @pytest.fixture
@@ -124,7 +127,8 @@ def describe_sunk_vessel_indicator():
     @pytest.mark.parametrize("num_vessels", [1, 2, 3, 4, 5])
     def test_game_updates_sunk_vessel_indicator_when_the_vessel_is_sunk(num_vessels):
         game = set_up_game_with_vessels(num_vessels)
-        game.update_sunk_vessel_indicator(("D", "3"))
+        game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
+        game.update_sunk_vessel_indicator()
         assert (game.current_player.sunk_vessel_indicator == np.array((num_vessels * [Peg.RED]) + ((5 - num_vessels) * [0]))).all()
 
 
