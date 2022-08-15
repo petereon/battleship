@@ -33,6 +33,7 @@ Feature: Sunk vessel
             | submarine   | F6         | F7        |
 
     Scenario: All vessels are sunk
-        Given I have sunk all of the opponent's 5 vessels
-        When the game checks the sunk vessel status
+        Given I have sunk 4 of the opponent's 5 vessels
+        And I have yet to hit one hole on the last vessel
+        When I take my turn to hit the last hole
         Then the game announces that I won
