@@ -208,7 +208,7 @@ def describe_game_take_turn():
         game.current_player.get_current_shot = mock.MagicMock()
         game.take_turn(("A", "1"))
 
-        assert game.game_status == GameStatus.PLAYER_1_WON
+        assert game.status == GameStatus.PLAYER_1_WON
 
 
 def describe_game_status_after_move():
