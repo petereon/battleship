@@ -34,7 +34,7 @@ class Game:
             self.current_player.target_grid.matrix[column][row] = Peg.WHITE
 
     def check_sunk_vessel_status(self) -> bool:
-        shot = self.current_player.current_shot
+        shot = self.current_player.get_current_shot()
         vessel_identifier = self.opponent.ocean_grid.matrix[shot[0]][shot[1]]
 
         vessel_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
