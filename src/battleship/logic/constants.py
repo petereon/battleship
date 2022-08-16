@@ -44,3 +44,7 @@ class Vessel(Enum):
     CRUISER = "CRUISER"
     SUBMARINE = "SUBMARINE"
     DESTROYER = "DESTROYER"
+
+
+class GameStatus(IntEnum):
+    PLAYER_1_WON = 1

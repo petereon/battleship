@@ -4,6 +4,7 @@ from pytest_bdd import given, parsers, scenarios, then, when
 
 from battleship.logic import Game
 from battleship.logic.constants import (
+    GameStatus,
     Peg,
     VesselIdentifier,
     VesselLength,
@@ -102,4 +103,4 @@ def when_I_take_my_turn_to_hit_the_last_hole(current_game):
 
 @then("the game announces that I won")
 def then_the_game_announces_that_I_won(current_game):
-    assert current_game.status == "player 1"
+    assert current_game.status == GameStatus.PLAYER_1_WON

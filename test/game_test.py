@@ -5,6 +5,7 @@ import pytest
 
 from battleship.logic import Game, Grid
 from battleship.logic.constants import (
+    GameStatus,
     Peg,
     VesselIdentifier,
     VesselLength,
@@ -111,18 +112,18 @@ def get_game_with_D3_battleship_and_A1_cruiser():
     return game
 
 
-# @pytest.fixture
-# def get_game_with_D3_battleship_and_A1_cruiser(game):
-#     num_of_vessels = 5
-#     vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
-#     for (column, row), vessel in vessels[:num_of_vessels]:
-#         length = VesselLength[vessel]
-#         for i in range(length):
-#             game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
-#             game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
-#     game.current_player.sunk_vessel_indicator = np.array(num_of_vessels * [Peg.RED])
-#     game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
-#     return game
+def get_game_with_5_ships_and_one_move_left(game):
+    num_of_vessels = 5
+    vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
+    for (column, row), vessel in vessels[:num_of_vessels]:
+        length = VesselLength[vessel]
+        for i in range(length):
+            game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
+            game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
+    game.current_player.sunk_vessel_indicator = np.array(num_of_vessels * [Peg.RED])
+    game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
+    game.current_player.target_grid.matrix[column_mapping["A"]][row_mapping["1"]] = 0
+    return game
 
 
 def set_up_game_with_vessels(num_of_vessels):
@@ -200,13 +201,14 @@ def describe_game_take_turn():
 
         game.update_sunk_vessel_indicator.assert_called_once()
 
-    # def test_update_game_status_to_player_1(get_game_with_D3_battleship_and_A1_cruiser):
-    #     game = Game()
-    #     game = get_game_with_D3_battleship_and_A1_cruiser(game)
-    #     game.current_player.take_shot = mock.MagicMock()
-    #     game.take_turn(("A", "1"))
+    def test_player_1_wins_the_game(get_game_with_D3_battleship_and_A1_cruiser):
+        game = Game()
+        game = get_game_with_5_ships_and_one_move_left(game)
+        game.current_player.take_shot = mock.MagicMock()
+        game.current_player.get_current_shot = mock.MagicMock()
+        game.take_turn(("A", "1"))
 
-    #     assert game.game_status == GameStatus.PLAYER_1_WON
+        assert game.game_status == GameStatus.PLAYER_1_WON
 
 
 def describe_game_status_after_move():

@@ -497,7 +497,7 @@ Navigator: Petko
 - 🚧 Implement unit tests for UAT 10.1
 - 🚧 commit
 
-# 54th Pomodoro
+# 55th Pomodoro
 
 Driver: Petko    
 Navigator: G    
@@ -505,4 +505,15 @@ Navigator: G
 - ❌ Implement unit tests for UAT 10.1
 - 🚧 Handling the current shot being None
 - ⚠ Integrate the get current shot into check sunk vessel status
+- ⚠ commit
+
+# 56th Pomodoro
+
+Driver: G  
+Navigator: Petko  
+
+- ✅ Handling the current shot being None
+- ✅ Integrate the get current shot into check sunk vessel status
+- ✅ commit
+- 🚧 Implement unit tests for UAT 10.1
 - ⚠ commit
