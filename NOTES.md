@@ -502,5 +502,7 @@ Navigator: Petko
 Driver: Petko    
 Navigator: G    
 
-- 🚧 Implement unit tests for UAT 10.1
+- ❌ Implement unit tests for UAT 10.1
+- 🚧 Handling the current shot being None
+- ⚠ Integrate the get current shot into check sunk vessel status
 - ⚠ commit

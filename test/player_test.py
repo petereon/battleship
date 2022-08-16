@@ -54,3 +54,16 @@ def test_game_starts_with_5_empty_indicators(sunk_vessel_indicator_state):
     player = Player()
     player.sunk_vessel_indicator = np.array(sunk_vessel_indicator_state)
     assert (player.check_sunk_vessel_indicator() == np.array(sunk_vessel_indicator_state)).all()
+
+
+def describe_get_current_shot():
+    def test_current_shot_is_none():
+        player = Player()
+        with pytest.raises(Exception):
+            player.get_current_shot()
+
+    def test_current_shot_is_not_none():
+        player = Player()
+        player.current_shot = (1, 2)
+
+        assert player.get_current_shot() == (1, 2)

@@ -35,7 +35,6 @@ class Game:
 
     def check_sunk_vessel_status(self) -> bool:
         shot = self.current_player.current_shot
-        print(shot)
         vessel_identifier = self.opponent.ocean_grid.matrix[shot[0]][shot[1]]
 
         vessel_holes = np.argwhere(self.opponent.ocean_grid.matrix == vessel_identifier)
@@ -55,4 +54,5 @@ class Game:
 
     def take_turn(self, shot_hole: tuple):
         self.current_player.take_shot(shot_hole)
+        self.update_sunk_vessel_indicator()
         (self.current_player, self.opponent) = (self.opponent, self.current_player)

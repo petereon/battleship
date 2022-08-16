@@ -17,7 +17,7 @@ class PositionError(Exception):
 
 
 class Player:
-    current_shot: tuple
+    current_shot: tuple | None = None
 
     def __init__(self):
         self.ocean_grid = Grid()
@@ -30,6 +30,11 @@ class Player:
         end_column_idx = column_mapping[coordinates[1][0]]
         end_row_idx = row_mapping[coordinates[1][1]]
         return ((start_column_idx, start_row_idx), (end_column_idx, end_row_idx))
+
+    def get_current_shot(self):
+        if isinstance(self.current_shot, tuple) and len(self.current_shot) == 2:
+            return self.current_shot
+        raise Exception(f"Current shot is {self.current_shot}")
 
     def __place_valid_vessel(self, start_column_idx, end_column_idx, start_row_idx, end_row_idx, vessel_type):
         self.ocean_grid.matrix[start_column_idx][start_row_idx] = VesselIdentifier[vessel_type.value]
