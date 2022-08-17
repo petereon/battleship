@@ -48,3 +48,4 @@ class Vessel(Enum):
 
 class GameStatus(IntEnum):
     PLAYER_1_WON = 1
+    PLAYER_2_WON = 2

@@ -211,6 +211,16 @@ def describe_game_take_turn():
 
         assert game.status == GameStatus.PLAYER_1_WON
 
+    def test_player_2_wins_the_game():
+        game = Game()
+        game.current_player = game.player2
+        game = get_game_with_5_ships_and_one_move_left(game)
+        game.current_player.take_shot = mock.MagicMock()
+        game.current_player.get_current_shot = mock.MagicMock()
+        game.take_turn(("A", "1"))
+
+        assert game.status == GameStatus.PLAYER_2_WON
+
 
 def describe_game_status_after_move():
     def test_game_does_not_end():
