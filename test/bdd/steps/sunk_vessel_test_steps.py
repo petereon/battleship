@@ -81,7 +81,7 @@ def given_i_have_sunk_4_of_the_opponents_5_vessels(game):
         for i in range(length):
             game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
-    game.current_player.sunk_vessel_indicator = np.array(num_of_vessels * [Peg.RED])
+    game.current_player.sunk_vessel_indicator = np.array(num_of_vessels * [Peg.RED] + [0])
     game.current_player.current_shot = (column_mapping["D"], row_mapping["3"])
     return game
 

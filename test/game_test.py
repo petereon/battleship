@@ -126,7 +126,7 @@ def get_game_with_5_ships_and_one_move_left(game):
     return game
 
 
-def set_up_game_with_vessels(num_of_vessels, target_grid_with_shots: bool = True):
+def set_up_game_with_vessels(num_of_vessels, target_grid_with_shots):
     game = Game()
     vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
     for (column, row), vessel in vessels[:num_of_vessels]:
