@@ -231,6 +231,17 @@ def describe_game_take_turn():
 
         game.place_peg.assert_called_once_with(("A", "1"))
 
+    def test_peg_is_placed_for_player_2():
+        game = Game()
+        game = get_game_with_5_ships_and_one_move_left(game)
+        game.current_player = game.player2
+        game.current_player.take_shot = mock.MagicMock()
+        game.place_peg = mock.MagicMock()
+        game.current_player.get_current_shot = mock.MagicMock()
+        game.take_turn(("A", "1"))
+
+        game.place_peg.assert_called_once_with(("A", "1"))
+
 
 def describe_game_status_after_move():
     def test_game_does_not_end():

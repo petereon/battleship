@@ -539,6 +539,6 @@ Navigator: Petko
 Driver: Petko  
 Navigator: G  
 
-- 🚧 Implement unit tests for UAT 10.1
-  - 🚧 working on tests for placing the peg as part of take turn
-- ⚠ commit
+- ✅ Implement unit tests for UAT 10.1
+  - ✅ working on tests for placing the peg as part of take turn
+- ✅ commit
