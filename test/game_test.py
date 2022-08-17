@@ -126,13 +126,14 @@ def get_game_with_5_ships_and_one_move_left(game):
     return game
 
 
-def set_up_game_with_vessels(num_of_vessels):
+def set_up_game_with_vessels(num_of_vessels, target_grid_with_shots: bool = True):
     game = Game()
     vessels = [("D3", "BATTLESHIP"), ("A1", "CARRIER"), ("B4", "CRUISER"), ("J5", "SUBMARINE"), ("H8", "DESTROYER")]
     for (column, row), vessel in vessels[:num_of_vessels]:
         length = VesselLength[vessel]
         for i in range(length):
-            game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
+            if target_grid_with_shots:
+                game.current_player.target_grid.matrix[column_mapping[column]][i + row_mapping[row]] = Peg.RED
             game.opponent.ocean_grid.matrix[column_mapping[column]][i + row_mapping[row]] = VesselIdentifier[vessel]
     game.current_player.sunk_vessel_indicator = np.array(((num_of_vessels - 1) * [Peg.RED]) + ((6 - num_of_vessels) * [0]))
     return game
@@ -201,7 +202,7 @@ def describe_game_take_turn():
 
         game.update_sunk_vessel_indicator.assert_called_once()
 
-    def test_player_1_wins_the_game(get_game_with_D3_battleship_and_A1_cruiser):
+    def test_player_1_wins_the_game():
         game = Game()
         game = get_game_with_5_ships_and_one_move_left(game)
         game.current_player.take_shot = mock.MagicMock()
@@ -212,8 +213,8 @@ def describe_game_take_turn():
 
 
 def describe_game_status_after_move():
-    def test_game_does_not_end(get_game_with_D3_battleship_and_A1_cruiser):
-        game = get_game_with_D3_battleship_and_A1_cruiser
+    def test_game_does_not_end():
+        game = set_up_game_with_vessels(5, False)
         game.current_player.take_shot = mock.MagicMock()
         game.current_player.get_current_shot = mock.MagicMock()
         game.take_turn(("A", "1"))

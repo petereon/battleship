@@ -1,11 +1,6 @@
 import numpy as np
 
-from battleship.logic.constants import (
-    Peg,
-    VesselIdentifier,
-    column_mapping,
-    row_mapping,
-)
+from battleship.logic.constants import GameStatus, Peg, column_mapping, row_mapping
 from battleship.logic.player import Player
 
 
@@ -19,7 +14,6 @@ class Game:
         self.current_player = self.player1
         self.opponent = self.player2
         self.status = None
-        self.sunk_vessel_indicator = np.zeros((5))
 
     def check_shot_status(self, shot_hole: tuple) -> bool:
         column, row = (column_mapping[shot_hole[0]], row_mapping[shot_hole[1]])
@@ -46,6 +40,7 @@ class Game:
         return True
 
     def update_sunk_vessel_indicator(self):
+        print("update_sunk_vessel_indicator self.current_player.sunk_vessel_indicator", self.current_player.sunk_vessel_indicator)
         if self.check_sunk_vessel_status():
             list_of_pegs = self.current_player.sunk_vessel_indicator.tolist()
             list_of_pegs.pop()
@@ -55,4 +50,8 @@ class Game:
     def take_turn(self, shot_hole: tuple):
         self.current_player.take_shot(shot_hole)
         self.update_sunk_vessel_indicator()
+        # print
+        print("take_turn self.current_player.sunk_vessel_indicator", self.current_player.sunk_vessel_indicator)
+        if (self.current_player.sunk_vessel_indicator == np.array([Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED])).all():
+            self.status = GameStatus.PLAYER_1_WON
         (self.current_player, self.opponent) = (self.opponent, self.current_player)
