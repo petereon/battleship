@@ -40,7 +40,16 @@ class Game:
         return True
 
     def update_sunk_vessel_indicator(self):
-        print("update_sunk_vessel_indicator self.current_player.sunk_vessel_indicator", self.current_player.sunk_vessel_indicator)
+        print(
+            "update_sunk_vessel_indicator self.current_player.sunk_vessel_indicator",
+            self.current_player.sunk_vessel_indicator,
+            self.check_sunk_vessel_status(),
+        )
+        print("Current player target grid\n", self.current_player.target_grid.matrix)
+        print("Opponent player ocean grid\n", self.opponent.ocean_grid.matrix)
+
+        print("Opponent player target grid\n", self.opponent.target_grid.matrix)
+        print("Current player ocean grid\n", self.current_player.ocean_grid.matrix)
         if self.check_sunk_vessel_status():
             list_of_pegs = self.current_player.sunk_vessel_indicator.tolist()
             list_of_pegs.pop()
@@ -48,6 +57,7 @@ class Game:
             self.current_player.sunk_vessel_indicator = np.array(list_of_pegs)
 
     def take_turn(self, shot_hole: tuple):
+        print(f"shot hole {shot_hole}")
         self.current_player.take_shot(shot_hole)
         self.update_sunk_vessel_indicator()
         if (self.current_player.sunk_vessel_indicator == np.array([Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED])).all():

@@ -526,10 +526,19 @@ Navigator: G
 - 🚧 Implement unit tests for UAT 10.1
 - ⚠ commit
 
-## 57th Pomodoro
+## 58th Pomodoro
 
 Driver: G  
 Navigator: Petko  
 
 - 🚧 Implement unit tests for UAT 10.1
+- ⚠ commit
+
+## 59th Pomodoro
+
+Driver: Petko  
+Navigator: G  
+
+- 🚧 Implement unit tests for UAT 10.1
+  - 🚧 working on tests for placing the peg as part of take turn
 - ⚠ commit

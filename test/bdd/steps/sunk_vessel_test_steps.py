@@ -98,7 +98,7 @@ def given_i_have_yet_to_hit_one_hole_on_the_last_vessel(current_game):
 
 @when("I take my turn to hit the last hole")
 def when_I_take_my_turn_to_hit_the_last_hole(current_game):
-    current_game.take_turn(("H", "9"))
+    current_game.take_turn(("I", "8"))
 
 
 @then("the game announces that I won")
