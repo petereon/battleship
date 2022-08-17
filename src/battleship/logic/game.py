@@ -50,8 +50,9 @@ class Game:
     def take_turn(self, shot_hole: tuple):
         self.current_player.take_shot(shot_hole)
         self.update_sunk_vessel_indicator()
-        # print
-        print("take_turn self.current_player.sunk_vessel_indicator", self.current_player.sunk_vessel_indicator)
         if (self.current_player.sunk_vessel_indicator == np.array([Peg.RED, Peg.RED, Peg.RED, Peg.RED, Peg.RED])).all():
-            self.status = GameStatus.PLAYER_1_WON
+            if self.current_player == self.player1:
+                self.status = GameStatus.PLAYER_1_WON
+            else:
+                self.status = GameStatus.PLAYER_2_WON
         (self.current_player, self.opponent) = (self.opponent, self.current_player)
