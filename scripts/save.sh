@@ -13,6 +13,7 @@ function usage() {
   echo "  ./scripts/save.sh uat <us> <uat> (c | covered)       # test(us<us>/uat<uat>): added already covered test case"
   echo "  ./scripts/save.sh uat <us> <uat> (d | done)          # feat(us<us>/uat<uat>): done"
   echo "  ./scripts/save.sh us <us> done                       # feat(us<us>): done"
+  echo "  ./scripts/save.sh fix                                # fix: <message>"
   exit 1
 }
 
@@ -48,6 +49,12 @@ case "$ACTION" in
     MSG="$2"
     checkNotEmpty "$MSG"
     commit "chore: 🧹 $MSG"
+    ;;
+
+  "fix")
+    MSG="$2"
+    checkNotEmpty "$MSG"
+    commit "fix: 🔧 $MSG"
     ;;
 
   "desc")

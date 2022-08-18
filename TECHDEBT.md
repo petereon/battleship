@@ -9,3 +9,4 @@
 1. ⚠ Review the results of mutation testing
 1. ⚠ Move the sunk ship indicator setup to a fixture
 1. ⚠ Rename the action files to something more meaningful
+1. ⚠ Remove the code coverage hack
