@@ -322,3 +322,32 @@ __So that__ I know that I won
 Given I have sunk all of the opponent's 5 ships
 When the game checks the sunk ship status
 Then the game announces that I won
+
+
+---
+
+#### Storytelling 11
+The application can be monitored by querying the `health` endpoint
+
+### User Story 11
+__As a__ user
+__I want__ the health endpoint which I can query
+__So that__ I can make sure the application is running
+
+#### UAT 11.1
+Given a battleships HTTP API
+And the API is running
+When I send an HTTP GET request to the `health` endpoint
+Then health endpoint responds with code 200
+
+#### Storytelling 12
+The new game will be started by sending a HTTP GET request to the `new_game` endpoint, upon which an instance of new game is created
+
+### User Story 12
+__As a__ game player
+__I want__ the new game to be created when I send a HTTP GET request to the `new_game` endpoint
+__So that__ I can start playing
+#### UAT 12.1
+Given a battleships HTTP API
+When I send an HTTP GET request to the `new_game` endpoint
+Then a new game gets created with an ID

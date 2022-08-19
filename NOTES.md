@@ -542,3 +542,12 @@ Navigator: G
 - ✅ Implement unit tests for UAT 10.1
   - ✅ working on tests for placing the peg as part of take turn
 - ✅ commit
+
+## 60th Pomodoro
+
+Driver: Petko  
+Navigator: G  
+
+- 🚧 Write out the backlog for bot vs bot API
+- ⚠ commit
+- ⚠ Implement BDD tests for UAT 11.1
