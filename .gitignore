@@ -1,5 +1,5 @@
 # Poetry artifacts
-poetry.lock
+# poetry.lock
 
 # Test artifacts
 __pycache__

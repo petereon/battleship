@@ -76,13 +76,10 @@ select = ["B","C","E","F","W","T4","B9"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-detect-secrets = "^1.2.0"
-toml-sort = "^0.20.0"
-pyproject-flake8 = "^0.0.1-alpha.4"
-gitlint = "^0.17.0"
 rich = "^12.4.4"
 numpy = "^1.22.4"
 fastapi = "^0.79.0"
+gitlint = "^0.17.0"
 
 [tool.poetry.dev-dependencies]
 # Formatting and Typing
@@ -123,3 +120,5 @@ pytest-mock = "^3.7.0"
 detect-secrets = "^1.2.0"
 pytest-clarity = "^1.0.1"
 radon = "^5.1.0"
+toml-sort = "^0.20.0"
+pyproject-flake8 = "^0.0.1-alpha.5"
