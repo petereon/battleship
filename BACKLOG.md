@@ -347,6 +347,7 @@ The new game will be started by sending a HTTP GET request to the `new_game` end
 __As a__ game player
 __I want__ the new game to be created when I send a HTTP GET request to the `new_game` endpoint
 __So that__ I can start playing
+
 #### UAT 12.1 ⚠
 Given a battleships HTTP API
 When I send an HTTP GET request to the `new_game` endpoint

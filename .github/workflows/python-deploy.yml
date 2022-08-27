@@ -65,4 +65,5 @@ jobs:
       run: |
         export DETA_ACCESS_TOKEN=${{ secrets.DETA_TOKEN }}
         cd src
+        ~/.deta/bin/deta projects
         ~/.deta/bin/deta deploy
