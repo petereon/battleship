@@ -556,7 +556,9 @@ Navigator: G
 
 Driver & Navigator: G
 
-- 🚧 Write the BDD test for the health check endpoint UAT 11.1
-- ⚠ commit
-- ⚠ Write unite tests for the health check endpoint UAT 11.
-- ⚠ commit
+- ✅ Write the BDD test for the health check endpoint UAT 11.1
+- ✅ commit
+- ✅ Write unit tests for the health check endpoint UAT 11.1
+- ✅ commit
+- ✅ Implement the health endpoint
+- ✅ commit

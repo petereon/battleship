@@ -326,15 +326,15 @@ Then the game announces that I won
 
 ---
 
-#### Storytelling 11 🚧
+#### Storytelling 11 ✅
 The application can be monitored by querying the `health` endpoint
 
-### User Story 11 🚧
+### User Story 11 ✅
 __As a__ user
 __I want__ the health endpoint which I can query
 __So that__ I can make sure the application is running
 
-#### UAT 11.1 🚧
+#### UAT 11.1 ✅
 Given a battleships HTTP API
 And the API is running
 When I send an HTTP GET request to the `health` endpoint
