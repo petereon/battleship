@@ -27,6 +27,14 @@ mypy = { shell = "poetry run mypy ." }
 install-self = { shell = "poetry run pip install ./dist/$(ls ./dist | grep .whl | tail -n 1) --force-reinstall" }
 uninstall-self = { shell = "poetry run pip uninstall battleship" }
 
+[tool.poe.tasks.start-app]
+cwd = "./src/battleship/api"
+cmd = "poetry run uvicorn api:app"
+
+[tool.poe.tasks.start-app-watch]
+cwd = "./src/battleship/api"
+cmd = "poetry run uvicorn api:app --reload"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
@@ -80,6 +88,7 @@ rich = "^12.4.4"
 numpy = "^1.22.4"
 fastapi = "^0.79.0"
 gitlint = "^0.17.0"
+uvicorn = "^0.18.3"
 
 [tool.poetry.dev-dependencies]
 # Formatting and Typing
@@ -122,3 +131,4 @@ pytest-clarity = "^1.0.1"
 radon = "^5.1.0"
 toml-sort = "^0.20.0"
 pyproject-flake8 = "^0.0.1-alpha.5"
+pytest-asyncio = "^0.19.0"

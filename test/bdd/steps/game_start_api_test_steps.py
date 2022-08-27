@@ -2,7 +2,7 @@ import numpy as np
 from fastapi.testclient import TestClient
 from pytest_bdd import given, parsers, scenarios, then, when
 
-from battleship.api import app
+# from battleship.api import app
 
 # scenarios("../features/game_start_api.feature")
 
