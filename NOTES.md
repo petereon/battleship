@@ -551,3 +551,12 @@ Navigator: G
 - 🚧 Write out the backlog for bot vs bot API
 - ⚠ commit
 - ⚠ Implement BDD tests for UAT 11.1
+
+## 71st Pomodoro
+
+Driver & Navigator: G
+
+- 🚧 Write the BDD test for the health check endpoint UAT 11.1
+- ⚠ commit
+- ⚠ Write unite tests for the health check endpoint UAT 11.
+- ⚠ commit
