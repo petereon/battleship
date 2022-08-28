@@ -59,7 +59,6 @@ jobs:
         ~/.deta/bin/deta clone --name battleship tmp/
 
         cp -r tmp/.deta .
-        ~/.deta/bin/deta visor enable
     - name: Deploy to Deta
       shell: bash
       run: |

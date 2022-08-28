@@ -562,3 +562,13 @@ Driver & Navigator: G
 - ✅ commit
 - ✅ Implement the health endpoint
 - ✅ commit
+
+# 72nd - 76th
+
+Driver & Navigator: G  
+
+- ✅ Investigate why gitlint is complaining - it's due to the fact that poetry doesn't support gitlint and it's actually installed using pip
+- 🚧 Investigate why the health endpoint is not running on https://goo9cf.deta.dev/heatlh
+  - Enabled visor
+  - Deployed the app to https://6tkmo4.deta.dev/health where I can see it is working
+  - Next step is to look at the visor logs as to what the error is.
