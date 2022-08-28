@@ -1,6 +1,6 @@
 import pytest
 
-from battleship.api.api import health_check
+from battleship.api import health_check
 
 
 @pytest.mark.asyncio

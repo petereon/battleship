@@ -1,1 +1,1 @@
-from battleship.api.api import *
+from battleship.api.app import *

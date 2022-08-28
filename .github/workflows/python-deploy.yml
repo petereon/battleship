@@ -64,6 +64,5 @@ jobs:
       shell: bash
       run: |
         export DETA_ACCESS_TOKEN=${{ secrets.DETA_TOKEN }}
-        cd src
-        ~/.deta/bin/deta projects
+        poetry export -f requirements.txt --output requirements.txt --without-hashes
         ~/.deta/bin/deta deploy
