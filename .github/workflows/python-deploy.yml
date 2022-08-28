@@ -55,7 +55,6 @@ jobs:
       shell: bash
       run: |
         export DETA_ACCESS_TOKEN=${{ secrets.DETA_TOKEN }}
-        cd src
 
         ~/.deta/bin/deta clone --name battleship tmp/
 
