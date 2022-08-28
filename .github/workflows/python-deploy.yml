@@ -59,6 +59,8 @@ jobs:
         ~/.deta/bin/deta clone --name battleship tmp/
 
         cp -r tmp/.deta .
+        cat .deta/prog_info
+        cat .deta/state
     - name: Deploy to Deta
       shell: bash
       run: |
