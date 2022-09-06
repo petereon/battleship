@@ -1,1 +1,1 @@
-from battleship.api import app
+from src.battleship.api import app
